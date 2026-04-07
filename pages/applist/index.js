@@ -25,8 +25,8 @@ Page({
 
     // 维修扫码/保养扫码
     const repairAddBoxesAll = [
-      { title: '维修扫码', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/sebei/weixiu', perm: 'business:repair:add', sm: true },
-      { title: '保养扫码', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/sebei/baoyang', perm: 'business:maintenance:add', sm: true }
+      // { title: '维修扫码', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/sebei/weixiu', perm: 'business:repair:add', sm: true },
+      // { title: '保养扫码', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/sebei/baoyang', perm: 'business:maintenance:add', sm: true }
     ];
     const repairAddBoxes = isSuperAdmin ? repairAddBoxesAll : repairAddBoxesAll.filter(item => permissions.includes(item.perm));
 
@@ -42,23 +42,27 @@ Page({
       { title: '扫码巡检', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/lab/frontier_form/home', perm: 'business:paTask:list' },
       { title: '巡检任务', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_2.svg', bg: '#d1fae5', url: '/pages/lab/frontier_task/home', perm: 'business:paTask:list' },
       { title: '巡检记录', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_3.svg', bg: '#ede9fe', url: '/pages/lab/task_search/task_search', perm: 'business:paRecord:list' },
-      { title: '安全行动日', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/safety_action/index', perm: 'business:danger:add' },
-      { title: '节假日安全', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#e0e7ff', url: '/pages/holiday_safety/index', perm: 'business:danger:add' },
+
+
+      // { title: '安全行动日', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/safety_action/index', perm: 'business:danger:add' },
+      // { title: '节假日安全', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#e0e7ff', url: '/pages/holiday_safety/index', perm: 'business:danger:add' },
       { title: '隐患上报', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#fee2e2', url: '/pages/data_form/data_form', perm: 'business:danger:add' },
-      { title: '日常隐患', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#ffe4e6', url: '/pages/daily_danger/index', perm: 'business:danger:add' },
-      { title: '安全管理检查', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/securityCheck/list', perm: 'business:danger:add' }
+      // { title: '日常隐患', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#ffe4e6', url: '/pages/daily_danger/index', perm: 'business:danger:add' },
+      // { title: '安全管理检查', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/securityCheck/list', perm: 'business:danger:add' }
     ];
     const xjBoxes = isSuperAdmin ? xjBoxesAll : xjBoxesAll.filter(item => permissions.includes(item.perm));
 
     // 每日任务
     const dailyBoxesAll = [
-      { title: '每日巡检任务', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s5_1.svg', bg: '#fef3c7', url: '/pages/lab/frontier_task2/home', perm: 'business:paTask:list' }
+      // { title: '每日巡检任务', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s5_1.svg', bg: '#fef3c7', url: '/pages/lab/frontier_task2/home', perm: 'business:paTask:list' }
+       { title: '安全行动日上报', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/safety_action/index', perm: 'business:danger:add' },
+      { title: '活动节假日安全上报', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#e0e7ff', url: '/pages/holiday_safety/index', perm: 'business:danger:add' },
     ];
     const dailyBoxes = isSuperAdmin ? dailyBoxesAll : dailyBoxesAll.filter(item => permissions.includes(item.perm));
 
     // 通知消息（不需要权限）
     const msgBoxes = [
-      { title: '通知消息', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s4_1.svg', bg: '#fee2e2', url: '/pages/msg_list/msg_list' }
+      { title: '系统通知', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s4_1.svg', bg: '#fee2e2', url: '/pages/msg_list/msg_list' }
     ];
 
     // 组装模块
@@ -89,8 +93,14 @@ Page({
       });
     }
     if (dailyBoxes.length) {
+      // modules.push({
+      //   title: '每日任务',
+      //   icon: '../../images/icon/ba4.svg',
+      //   className: 'baimg4',
+      //   boxes: dailyBoxes
+      // });
       modules.push({
-        title: '每日任务',
+        title: '安全上报',
         icon: '../../images/icon/ba4.svg',
         className: 'baimg4',
         boxes: dailyBoxes
