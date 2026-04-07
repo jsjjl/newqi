@@ -21,11 +21,29 @@ Page({
       'https://img0.baidu.com/it/u=3442821327,3325401128&fm=253&fmt=auto&app=138&f=JPEG?w=664&h=500'
     ],
     quickServices: [
+      {
+        title: '设备扫码',
+        icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg',
+        bg: '#dbeafe',
+        url: '/pages/sebei/detail',
+        perm: 'business:assets:list',
+        count: 0
+      },
+      {
+        title: '扫码巡检',
+        icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg',
+        bg: '#dbeafe',
+        url: '/pages/lab/frontier_form/home',
+        perm: 'business:paTask:list',
+        sm: true,
+        count: 12
+      },
+
       { title: '安全行动日', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#fef3c7', url: '/pages/safety_action/index', count: 1 },
       { title: '节假日安全', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_5.svg', bg: '#e0e7ff', url: '/pages/holiday_safety/index', count: 1 },
-      { title: '报修申请', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#fee2e2', url: '/pages/sebei/weixiu', sm: true, count: 3 },
-      { title: '隐患上报', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#fef3c7', url: '/pages/data_form/data_form', count: 2 },
-      { title: '日常隐患', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#ffe4e6', url: '/pages/daily_danger/index', count: 5 }
+      // { title: '报修申请', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#fee2e2', url: '/pages/sebei/weixiu', sm: true, count: 3 },
+      // { title: '隐患上报', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#fef3c7', url: '/pages/data_form/data_form', count: 2 },
+      // { title: '日常隐患', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg', bg: '#ffe4e6', url: '/pages/daily_danger/index', count: 5 }
     ],
     safetyNews: [
       { title: '冬季特种设备安全使用指南', date: '2026-03-20', thumb: 'https://img0.baidu.com/it/u=3442821327,3325401128&fm=253&fmt=auto&app=138&f=JPEG?w=664&h=500' },

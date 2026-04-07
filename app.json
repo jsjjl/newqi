@@ -98,12 +98,6 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/mac/index",
-        "iconPath": "images/nav/f2.png",
-        "selectedIconPath": "images/nav/f2_a.png",
-        "text": "设备管理"
-      },
-      {
         "pagePath": "pages/applist/index",
         "iconPath": "images/nav/f3.png",
         "selectedIconPath": "images/nav/f3_a.png",

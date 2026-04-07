@@ -1,7 +1,7 @@
 <view class="login-bg">
   <view class="login-header">
     <image class="logo" src="../../images/logo.png" mode="aspectFit"/>
-    <view class="sys-title">医用气体监测系统</view>
+    <view class="sys-title">安全生产管理平台</view>
     <view class="sys-welcome">欢迎登录</view>
   </view>
   <view class="login-panel" wx:if="{{xs}}">

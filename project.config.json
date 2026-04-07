@@ -18,7 +18,18 @@
     },
     "useIsolateContext": true,
     "postcss": false,
-    "minifyWXML": true
+    "minifyWXML": true,
+    "compileWorklet": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "localPlugins": false,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "swc": false,
+    "disableSWC": true
   },
   "editorSetting": {
     "tabIndent": "insertSpaces",
@@ -28,5 +39,7 @@
     "ignore": [],
     "include": []
   },
-  "appid": "wxeab17b4583d6981a"
+  "appid": "wxeab17b4583d6981a",
+  "libVersion": "3.11.1",
+  "simulatorPluginLibVersion": {}
 }

@@ -116,6 +116,6 @@
 
      <!-- 底部口号 -->
   <view class="footer">
-    <text>医用气体管理系统 · 智慧守护您的安全</text>
+    <text>安全生产管理平台 · 智慧守护您的安全</text>
   </view>
 </view>
