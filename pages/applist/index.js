@@ -16,6 +16,7 @@ Page({
     const assetBoxesAll = [
       { title: '设备扫码', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg', bg: '#dbeafe', url: '/pages/sebei/detail', perm: 'business:assets:list' },
       { title: '设备查询', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s1_1.svg', bg: '#dbeafe', url: '/pages/sebei/home', perm: 'business:assets:list' },
+      { title: '新增设备', icon: 'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s1_1.svg', bg: '#dbeafe', url: '/pages/sebei/add_device', perm: 'business:assets:add' },
      
       // { title: '维修记录', icon: '../../images/icon/wxjl.svg', bg: '#f7eed9', url: '/pages/sebei/list_weixiu', perm: 'business:repair:list' },
       // { title: '保养记录', icon: '../../images/icon/byjl.svg', bg: 'rgb(250, 218, 236)', url: '/pages/sebei/list_baoyang', perm: 'business:maintenance:list' }

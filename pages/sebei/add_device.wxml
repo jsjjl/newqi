@@ -1,0 +1,37 @@
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/sb.svg" />
+    <p>新增设备</p>
+  </view>
+  
+  <view class="top">
+    <text>设备名称</text>
+  </view>
+  <view class="xlk">
+    <input class="xlki" type="text" placeholder="请输入设备名称" bindinput="onNameInput" value="{{deviceName}}" />
+  </view>
+
+  <view class="top">
+    <text>设备编号</text>
+  </view>
+  <view class="xlk">
+    <input class="xlki" type="text" placeholder="请输入设备编号" bindinput="onCodeInput" value="{{deviceCode}}" />
+  </view>
+
+  <view class="top">
+    <text>楼层</text>
+  </view>
+  <view class="xlk">
+    <input class="xlki" type="text" placeholder="请输入楼层" bindinput="onFloorInput" value="{{floor}}" />
+  </view>
+
+  <view class="top">
+    <text>区域位置</text>
+  </view>
+  <view class="xlk">
+    <input class="xlki" type="text" placeholder="请输入区域位置" bindinput="onPositionInput" value="{{position}}" />
+  </view>
+</view>
+
+<view class="bt" bindtap="onSubmit">提交</view>
+<danger-btn />
