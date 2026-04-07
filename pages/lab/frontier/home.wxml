@@ -1,0 +1,5 @@
+<view class="xy_listbox" bindtap="go" data-id="{{item.url}}" wx:for="{{ list }}" wx:key="index">
+    {{ item.name }}
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+</view>
+<danger-btn />

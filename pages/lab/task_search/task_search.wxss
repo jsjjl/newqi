@@ -1,0 +1,49 @@
+.top{ width: 100%; height: 120rpx; display: block; float: left; background: #1568EA; position: relative; z-index: 1; margin-bottom: 10rpx;}
+.topbox{ width: 320rpx;
+  height: 80rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(0,0,0,0.28);
+  border-radius: 10rpx; margin: 25rpx 27rpx 14rpx; display: block; float: left;}
+
+.tl{ width: 260rpx; height: 80rpx; line-height: 80rpx; font-size: 24rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #828080;display: block; float: left; margin: 0 0 0 0;}
+.picker.active{ color: #000000;}
+.tr{ width: 29rpx; height: auto; display: block; float: left; margin: 27rpx 11rpx 0 19rpx;}
+
+
+.box{ width: 695rpx;
+  height: auto;
+  padding-bottom: 30rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(0,0,0,0.28);
+  border-radius: 10rpx;
+  display: block; float: left; margin:25rpx 0 0 28rpx;
+}
+.box p.ok em{color: green;}
+.box p.err em{color: red;}
+
+.box image{ width: 27rpx; height: auto; display: block; float: left; margin: 6rpx 9rpx 0 20rpx; }
+
+.box p{ width: 100%; height: auto; display: block; float: left; margin: 25rpx 0 0rpx; }
+.box span{ width: 150rpx; height: auto; display: block; float: left; margin: 0 0 0 0;font-size: 24rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #000;
+  opacity: 0.77; }
+
+  .box em{ width: 400rpx; height: auto; display: block; float: right; margin: 0 25rpx 0 0;font-size: 24rpx;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #000; text-align: right; }
+
+.no{ width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  font-size: 24rpx;
+
+font-weight: 400;
+color: #000000;
+opacity: 0.6; margin: 100rpx 0 0 0;text-align: center;}

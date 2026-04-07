@@ -1,0 +1,9 @@
+page {
+  background: var(--bg-color, #f5f6f8);
+}
+
+.box {
+  width: 100%;
+  min-height: 120rpx;
+  border-bottom: 1px solid var(--border-color);
+}

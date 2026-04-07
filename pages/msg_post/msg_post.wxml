@@ -1,0 +1,9 @@
+
+
+
+<view class="page" style="padding: 30rpx 24rpx;">
+    <view class="modern-card box" style="padding: 40rpx 30rpx; border-radius: var(--border-radius-lg); font-size: 30rpx; color: var(--text-main); line-height: 1.8; margin: 0; width: 100%; box-sizing: border-box;">
+        <rich-text nodes="{{noticeContent}}"></rich-text>
+    </view>
+</view>
+<danger-btn />

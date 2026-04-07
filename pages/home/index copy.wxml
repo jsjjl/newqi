@@ -1,0 +1,121 @@
+<view class="main">
+    <view class="header">
+        <view class="top_fr">
+            <span>{{topmsg.top}}</span>
+            <p>{{topmsg.bottom}}</p>
+        </view>
+        <view class="tx">
+            <image wx:if="{{tx}}" src="{{tx}}" mode="widthFix" />
+            <image wx:else src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_2.svg" mode="widthFix" />
+        </view>
+    </view>
+    <view class="title">快速操作</view>
+    <view class="boxs">
+        <view class="box" bindtap="go" data-id="/pages/lab/frontier_form/home">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">扫码巡检</view>
+        </view>
+
+          <view class="box" bindtap="go" data-id="/pages/sebei/home">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s1_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">设备查询</view>
+        </view>
+
+        <view class="box" bindtap="go"  data-sm="1"  data-id="/pages/sebei/baoyang">
+            <view class="box_t" style="background:rgb(250, 218, 236);">
+               <image src="../../images/icon/byjl.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">设备保养</view>
+        </view>
+          <view class="box" bindtap="go" data-sm="1" data-id="/pages/sebei/weixiu">
+            <view class="box_t" style="background:#f7eed9;">
+                <image src="../../images/icon/wxjl.svg"  mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">设备维修</view>
+        </view>
+        <!-- <view class="box" bindtap="go" data-id="/pages/qi/data_form">
+            <view class="box_t" style="background: #d1fae5;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s2_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">气体借用</view>
+        </view> -->
+      
+        <!-- <view class="box" bindtap="go" data-id="/pages/lab/frontier_task2/home">
+            <view class="box_t" style="background: #fef3c7;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s5_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">每日任务</view>
+        </view> -->
+    </view>
+    <view class="title">平台状态</view>
+    <view class="grid">
+        <view class="grid-border" bindtap="go" data-id="/pages/lab/frontier_task2/home">
+            <view class="text-sm text-gray-500 mb-1">今日巡检</view>
+            <view class="flex items-end justify-between">
+                <view class="text-xl font-medium" style="color:#3b82f6">
+                    {{opsWxTaskCount?opsWxTaskCount:0}}
+                    </view>
+                <!-- <view class="text-xs text-blue-500">62%</view> -->
+            </view>
+            <view class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                <view class="bg-blue-500 h-1.5 rounded-full" style="width:100%"></view>
+            </view>
+        </view>
+         <view class="grid-border" bindtap="go" data-id="/pages/sebei/home2">
+            <view class="text-sm text-gray-500 mb-1">设备状态</view>
+            <view class="flex items-end justify-between">
+                <view class="text-xl font-medium"  style="color:#10b981">{{deviceExpireCount.overdue?deviceExpireCount.overdue:0}}/{{deviceExpireCount.total?deviceExpireCount.total:0}}</view>
+                <view class="text-xs text-green-500"></view>
+            </view>
+            <view class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                <view   class="bg-green-500 h-1.5 rounded-full" style="width:100%"></view>
+            </view>
+        </view>
+        <!-- <view class="grid-border" bindtap="go" data-id="/pages/qi/home">
+            <view class="text-sm text-gray-500 mb-1">气体借用数量</view>
+            <view class="flex items-end justify-between">
+                <view class="text-xl font-medium"  style="color:#3b82f6">{{gasLendCount}}</view>
+            </view>
+            <view class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                <view class="bg-blue-500 h-1.5 rounded-full" style="width: 100%"></view>
+            </view>
+        </view> -->
+        <!--
+        <view class="grid-border" bindtap="go" data-id="/pages/msg_list/msg_list">
+            <view class="text-sm text-gray-500 mb-1">报警情况</view>
+            <view class="flex items-end justify-between">
+                <view class="text-xl font-medium" style="color:#ef4444">0</view>
+                <view class="text-xs text-red-500">待处理</view>
+            </view>
+            <view class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+                <view class="bg-red-500 h-1.5 rounded-full" style="width:100%"></view>
+            </view>
+        </view> -->
+    </view>
+    <view class="title" bindtap="go" data-id="/pages/lab/frontier_task2/home">
+        待办任务
+        <span>查看全部</span>
+    </view>
+    <view class="bg-white">
+        <view class="pb-3"  bindtap="gorw" data-id="{{item.id}}" data-name="{{item.name?item.name:''}}" wx:for="{{ list }}"  wx:for="{{ list }}" wx:key="index">
+            <view class="items-center">
+                <span class="mr-2"></span>
+                <span class="text-sm">{{item.name}}</span>
+            </view>
+            <span class="text-xs">{{item.startTime}}</span>
+        </view>
+        <view class="no" wx:if="{{noData}}">
+            <!-- <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"  style="margin-top: 20rpx; margin-left:210rpx"/> -->
+            <p>暂无数据</p>
+        </view>
+    </view>
+
+     <!-- 底部口号 -->
+  <view class="footer">
+    <text>医用气体管理系统 · 智慧守护您的安全</text>
+  </view>
+</view>

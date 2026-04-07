@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="article modern-card" style="margin: 30rpx 24rpx; padding: 40rpx 30rpx;">
+    <view class="title" style="font-size: 40rpx; font-weight: bold; color: var(--text-main); line-height: 1.4; margin-bottom: 24rpx;">{{news.title}}</view>
+    <view class="meta" style="display: flex; align-items: center; font-size: 26rpx; color: var(--text-muted); margin-bottom: 40rpx;">
+      <text class="date" style="margin-right: 30rpx;">{{news.date}}</text>
+      <view style="display: flex; align-items: center; color: var(--primary-color);">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/0.png" mode="widthFix" style="width: 24rpx; height: 24rpx; margin-right: 8rpx;" />
+        <text class="author">系统发布</text>
+      </view>
+    </view>
+    
+    <image class="banner" src="{{news.thumb}}" mode="widthFix" style="width: 100%; border-radius: var(--border-radius-md); margin-bottom: 40rpx; box-shadow: var(--shadow-sm);"></image>
+
+    <view class="content" style="font-size: 30rpx; color: var(--text-main); line-height: 1.8;">
+      <view class="p" style="margin-bottom: 30rpx; text-indent: 2em; text-align: justify;">
+        本文是关于《{{news.title}}》的详细内容。为了保障医疗气体设备的安全稳定运行，相关工作人员必须严格遵守操作规程和安全生产法。
+      </view>
+      <view class="p" style="margin-bottom: 30rpx; text-indent: 2em; text-align: justify;">
+        日常巡检中应当注意检查各类仪表的读数、阀门的密封性以及管道的连接情况。若发现异常，应立即上报隐患并采取相应的应急措施。
+      </view>
+      <view class="p" style="margin-bottom: 30rpx; text-indent: 2em; text-align: justify;">
+        安全生产，重于泰山。各部门需定期开展特种设备安全培训，强化全员安全意识，防患于未然。
+      </view>
+    </view>
+  </view>
+</view>
+<danger-btn />

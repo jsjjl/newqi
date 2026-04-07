@@ -1,0 +1,112 @@
+<view class="main">
+    <view class="header" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); border: none; box-shadow: var(--shadow-sm); border-radius: var(--border-radius-xl);">
+        <view class="top_fr">
+            <span style="color: #ffffff;">{{topmsg.top}}</span>
+            <p style="color: rgba(255,255,255,0.8);">{{topmsg.bottom}}</p>
+        </view>
+        <view class="tx" style="box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1); border: 4rpx solid rgba(255,255,255,0.3);">
+            <image wx:if="{{tx}}" src="{{tx}}" mode="widthFix" />
+            <image wx:else src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_2.svg" mode="widthFix" />
+        </view>
+    </view>
+
+    <!-- 自定义图片轮播 -->
+    <swiper class="banner-swiper" indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#1568EA" indicator-color="rgba(255,255,255,0.6)" interval="3000" duration="500">
+      <block wx:for="{{carouselImages}}" wx:key="*this">
+        <swiper-item>
+          <image src="{{item}}" class="banner-image" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+
+    <!-- 快捷服务 -->
+    <view class="title" wx:if="{{quickServices.length > 0}}" style="font-weight: bold; font-size: 34rpx; margin-top: 40rpx;">快捷服务</view>
+    <view class="boxs">
+      <block wx:for="{{quickServices}}" wx:key="title">
+        <view class="box modern-card" style="padding: 20rpx 0; margin-bottom: 0;" bindtap="go" data-id="{{item.url}}" data-sm="{{item.sm||''}}">
+          <view class="box_t" style="background: {{item.bg}}; border-radius: 30rpx;">
+            <image src="{{item.icon}}" mode="widthFix" class="box_img" />
+            <view class="badge" wx:if="{{item.count && item.count > 0}}">{{item.count > 99 ? '99+' : item.count}}</view>
+          </view>
+          <view class="box-title" style="margin-top: 10rpx; font-weight: 500;">{{item.title}}</view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 快速操作 -->
+<view class="title" wx:if="{{quickActions.length > 0}}" style="font-weight: bold; font-size: 34rpx;">快速操作</view>
+<view class="boxs">
+  <block wx:for="{{quickActions}}" wx:key="title">
+    <view class="box modern-card" style="padding: 20rpx 0; margin-bottom: 0;" bindtap="go" data-id="{{item.url}}" data-sm="{{item.sm||''}}">
+      <view class="box_t" style="background: {{item.bg}}; border-radius: 30rpx;">
+        <image src="{{item.icon}}" mode="widthFix" class="box_img" />
+        <view class="badge" wx:if="{{item.count && item.count > 0}}">{{item.count > 99 ? '99+' : item.count}}</view>
+      </view>
+      <view class="box-title" style="margin-top: 10rpx; font-weight: 500;">{{item.title}}</view>
+    </view>
+  </block>
+</view>
+
+  <!-- 平台状态 -->
+<view class="title" wx:if="{{statusCards.length > 0}}" style="font-weight: bold; font-size: 34rpx;">平台状态</view>
+
+<view class="grid">
+  <block wx:for="{{statusCards}}" wx:key="title">
+    <view class="grid-border modern-card" style="margin-bottom: 0;" bindtap="go" data-id="{{item.url}}">
+      <view class="text-sm text-gray-500 mb-1">{{item.title}}</view>
+      <view class="flex items-end justify-between">
+        <view class="text-xl font-medium" style="color:{{item.color}}">
+          <!-- 支持不同数据结构 -->
+          <block wx:if="{{item.valueKey=='deviceExpireCount'}}">
+            {{deviceExpireCount.overdue?deviceExpireCount.overdue:0}}/{{deviceExpireCount.total?deviceExpireCount.total:0}}
+          </block>
+          <block wx:else>
+             {{opsWxTaskCount?opsWxTaskCount:0}}
+          </block>
+        </view>
+      </view>
+      <view class="w-full bg-gray-200 rounded-full h-1.5 mt-2">
+        <view class="h-1.5 rounded-full" style="width:100%;background:{{item.color}}"></view>
+      </view>
+    </view>
+  </block>
+</view>
+
+    <view class="title flex-between" wx:if="{{showTodo}}"  bindtap="go" data-id="/pages/lab/frontier_task2/home" style="font-weight: bold; font-size: 34rpx;">
+        待办任务
+        <span style="font-size: 26rpx; color: var(--text-muted); font-weight: normal;">查看全部 <text style="font-family: monospace;">></text></span>
+    </view>
+    <view class="modern-card" wx:if="{{showTodo}}" style="padding: 0;">
+        <view class="pb-3" style="padding: 30rpx; border-bottom: 1rpx solid var(--border-color); margin-bottom: 0;" bindtap="gorw" data-id="{{item.id}}" data-name="{{item.name?item.name:''}}" wx:for="{{ list }}" wx:key="index">
+            <view class="items-center">
+                <span class="mr-2" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);"></span>
+                <span class="text-sm" style="font-weight: 500; color: var(--text-main);">{{item.name}}</span>
+            </view>
+            <span class="text-xs" style="color: var(--text-muted);">{{item.startTime}}</span>
+        </view>
+        <view class="no" wx:if="{{noData}}" style="padding: 40rpx 0; height:70rpx">
+            <p>暂无数据</p>
+        </view>
+    </view>
+
+    <!-- 安全生产资讯 -->
+    <view class="title flex-between" wx:if="{{safetyNews.length > 0}}" bindtap="goNewsList" style="font-weight: bold; font-size: 34rpx;">
+        安全生产资讯
+        <span style="font-size: 26rpx; color: var(--text-muted); font-weight: normal;">更多 <text style="font-family: monospace;">></text></span>
+    </view>
+    <view class="modern-card safety-news-container" wx:if="{{safetyNews.length > 0}}" style="padding: 0 30rpx;">
+      <view class="news-item" wx:for="{{safetyNews}}" wx:key="title" bindtap="goNewsDetail" data-item="{{item}}" style="border-bottom: 1rpx solid var(--border-color);">
+        <view class="news-content">
+          <view class="news-title" style="font-weight: 500; font-size: 32rpx;">{{item.title}}</view>
+          <view class="news-date" style="color: var(--text-muted);">{{item.date}}</view>
+        </view>
+        <image class="news-thumb" src="{{item.thumb}}" mode="aspectFill"></image>
+      </view>
+    </view>
+
+     <!-- 底部口号 -->
+  <view class="footer" style="color: var(--text-muted); font-size: 24rpx; padding: 40rpx 0;">
+    <text>医用气体管理系统 · 智慧守护您的安全</text>
+  </view>
+</view>
+<danger-btn />

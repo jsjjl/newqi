@@ -1,0 +1,20 @@
+<view class="login-bg">
+  <view class="login-header">
+    <image class="logo" src="../../images/logo.png" mode="aspectFit"/>
+    <view class="sys-title">医用气体监测系统</view>
+    <view class="sys-welcome">欢迎登录</view>
+  </view>
+  <view class="login-panel" wx:if="{{xs}}">
+    <view class="form">
+      <view class="item">
+        <text class="label">用户名</text>
+        <input class="input" placeholder="请输入用户名" bindinput="onUsernameInput" />
+      </view>
+      <view class="item">
+        <text class="label">密码</text>
+        <input class="input" password="true" placeholder="请输入密码" bindinput="onPasswordInput" />
+      </view>
+      <button class="login-btn" bindtap="onLoginTap" loading="{{isLogining}}">登录</button>
+    </view>
+  </view>
+</view>

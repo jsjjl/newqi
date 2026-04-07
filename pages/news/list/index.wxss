@@ -1,0 +1,10 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--bg-color, #f5f6f8);
+  padding: 30rpx 24rpx;
+  box-sizing: border-box;
+}
+
+.safety-news-container {
+  /* Layout managed by modern-card classes in wxml */
+}

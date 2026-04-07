@@ -1,0 +1,45 @@
+<view class="top">
+
+    <!-- <view class="bj"></view> -->
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/01.png" mode="widthFix" />
+        <span>实时告警信息</span>
+    </view>
+
+    <!-- <view class="ss">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/ss.png" mode="widthFix" />
+        <input class="ssi" placeholder="请输入" bindinput="bindKeyInput"/>
+    </view> -->
+    
+    <view class="fboxs">
+        <view wx:if="{{kqjz.length>0}}">
+        <view class="fbox" wx:for="{{kqjz}}" wx:key="item">
+            <p><span>地点</span> <em>{{item.position}}</em></p>
+            <p><span>设备</span> <em>{{item.equipmentName}}</em></p>
+            <p><span>级别</span> <em>{{item.grade}}级</em></p>
+            <p><span>告警信息</span> <em>{{item.info}}</em></p>
+            <p><span>告警时间</span> <em>{{item.warningTime}}</em></p>
+        </view>
+        </view>
+        <view wx:else>
+        <view class="wsj">暂无数据</view>
+        </view>
+
+        <!-- <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>2号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view> -->
+
+
+    </view>
+
+          
+  
+
+
+
+</view>
+<danger-btn />

@@ -1,0 +1,20 @@
+<view class="page">
+    <view class="xy_listbox select" bindtap="select">
+        <span>选择位置</span>
+        <picker class="select_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <p class="{{index!=null?'':'a'}}">{{index!=null?array[index]:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+    <!-- 列表 -->
+    <view class="video_box" bindtap="go" data-id="{{item.url}}" wx:for="{{ list }}" wx:key="index">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+                <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+
+    <!--<view class="noMor" wx:if="{{noMor}}">加载完成</view>-->
+</view>
+<danger-btn />

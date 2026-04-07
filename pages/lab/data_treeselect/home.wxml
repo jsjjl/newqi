@@ -1,0 +1,44 @@
+<view class="jbox">
+    <!-- 一级菜单 -->
+    <view class="{{groupId==item.id?'xy_listbox xy_listbox_select':'xy_listbox' }}" bindtap="select" data-level="1" data-id="{{item.id}}" data-label="{{item.label}}" data-index1="{{index}}" data-children="{{item.children?1:0}}" wx:for="{{ list }}" wx:key="index">
+        <i>{{ item.label }}</i>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/down.png" wx:if="{{item.open}}" mode="widthFix" />
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/up.png" wx:else mode="widthFix" />
+        <!-- 二级菜单 -->
+        <view class="" wx:if="{{item.children && item.open}}">
+            <view class="{{groupId==item2.id?'xy_listbox xy_listbox2 xy_listbox_select':'xy_listbox xy_listbox2' }}" catchtap="select" data-level="2" data-id="{{item2.id}}" data-index1="{{index}}" data-index2="{{index2}}" data-label="{{item2.label}}" data-children="{{item2.children?1:0}}" wx:for-item="item2" wx:for="{{ item.children }}" wx:key="index2">
+                <i>{{ item2.label }}</i>
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/down.png" wx:if="{{item2.open}}" mode="widthFix" />
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/up.png" wx:else mode="widthFix" />
+                <!-- 三级菜单 -->
+                <view class="" wx:if="{{item2.children && item2.open}}">
+                    <view class="{{groupId==item3.id?'xy_listbox xy_listbox3 xy_listbox_select':'xy_listbox xy_listbox3' }}" catchtap="select" data-level="3" data-id="{{item3.id}}" data-index1="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}" data-label="{{item3.label}}" data-children="{{item3.children?1:0}}" wx:for="{{ item2.children }}" wx:for-item="item3" wx:key="index3">
+                         <i>{{ item3.label }}</i>
+                        <block wx:if="{{item3.children}}">
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/down.png" wx:if="{{item3.children[index].open}}" mode="widthFix" />
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/up.png" wx:else mode="widthFix" /></block>
+                        <!-- 四级菜单 -->
+                        <view class="" wx:if="{{item3.children && item3.children[index].open}}">
+                            <view class="{{groupId==item4.id?'xy_listbox xy_listbox4 xy_listbox_select':'xy_listbox xy_listbox4' }}" catchtap="select" data-level="4" data-id="{{item4.id}}" data-index1="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}" data-index4="{{index4}}" data-label="{{item4.label}}" data-children="{{item4.children?1:0}}" wx:for="{{ item3.children }}" wx:for-item="item4" wx:key="index4">
+                                <i>{{ item4.label }}</i>
+                                 <block wx:if="{{item4.children}}">
+                                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/down.png" wx:if="{{item4.open}}" mode="widthFix" />
+                                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/up.png" wx:else mode="widthFix" /></block>
+                                <!-- 五级菜单 -->
+                                <view class="" wx:if="{{item4.children && item4.open}}">
+                                    <view class="{{groupId==item5.id?'xy_listbox xy_listbox5 xy_listbox_select':'xy_listbox xy_listbox5' }}" catchtap="select" data-level="5" data-id="{{item5.id}}" data-index1="{{index}}" data-index2="{{index2}}" data-index3="{{index3}}" data-index4="{{index4}}" data-index5="{{index5}}" data-label="{{item5.label}}" data-children="{{item5.children?1:0}}" wx:for="{{ item4.children }}" wx:for-item="item5" wx:key="index5">
+                                      <i>{{ item5.label }}</i>
+                                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/down.png" wx:if="{{item5.open}}" mode="widthFix" />
+                                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/up.png" wx:else mode="widthFix" />
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="bthr"></view>
+    <view class="bt" bindtap="save">确定</view>
+</view>

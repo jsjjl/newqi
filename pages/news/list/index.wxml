@@ -1,0 +1,19 @@
+<view class="page">
+  <view class="safety-news-container" wx:if="{{safetyNews.length > 0}}">
+    <view class="modern-card hover-scale news-item" wx:for="{{safetyNews}}" wx:key="title" bindtap="goNewsDetail" data-item="{{item}}" style="display: flex; justify-content: space-between; align-items: center; padding: 30rpx; margin-bottom: 24rpx;">
+      <view class="news-content" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between; height: 140rpx; padding-right: 20rpx;">
+        <view class="news-title" style="font-size: 32rpx; color: var(--text-main); font-weight: bold; line-height: 1.4; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;">{{item.title}}</view>
+        <view class="news-date" style="font-size: 24rpx; color: var(--text-muted); display: flex; align-items: center;">
+          <view style="width: 12rpx; height: 12rpx; background: var(--primary-color); border-radius: 50%; margin-right: 12rpx; opacity: 0.6;"></view>
+          {{item.date}}
+        </view>
+      </view>
+      <image class="news-thumb" src="{{item.thumb}}" mode="aspectFill" style="width: 200rpx; height: 140rpx; border-radius: var(--border-radius-md); box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05); flex-shrink: 0;"></image>
+    </view>
+  </view>
+  
+  <view class="no-more" wx:if="{{safetyNews.length > 0}}" style="text-align: center; font-size: 24rpx; color: var(--text-muted); padding: 40rpx 0;">
+    - 没有更多内容了 -
+  </view>
+</view>
+<danger-btn />

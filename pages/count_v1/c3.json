@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#1677ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "负压机组运行时间统计图",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

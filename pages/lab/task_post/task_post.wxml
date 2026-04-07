@@ -1,0 +1,100 @@
+<viwe class="box">
+  <view class="title title2">基础信息</view>
+  <view class="jc">
+    <p>
+      <span>巡检点位:</span>
+      <em>{{all.pointName}}</em>
+    </p>
+    <p>
+      <span>巡检时间:</span>
+      <em>{{all.submitTime}}</em>
+    </p>
+  </view>
+</viwe>
+<viwe class="box">
+  <view class="title title2">检查内容</view>
+  <view class="jc">
+    <block wx:for='{{entries}}' wx:key='index' wx:for-item='item'>
+      <block>
+        <p>
+
+          <!-- <image wx:if="{{item.type!=3}}" mode="widthFix" src="{{item.state==1?'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/ok.png':'https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/err.png'}}" /> -->
+          <block wx:if="{{item.type==3}}">
+            <span wx:if="{{item.state==1}}" style="color:green">【左】</span>
+            <span wx:if="{{item.state==2}}" style="color:green">【右】</span>
+          </block>
+          <block wx:else>
+            <span wx:if="{{item.state==1}}" style="color:green">【正常】</span>
+            <span wx:if="{{item.state==2}}" style="color:red">【异常】</span>
+            <span wx:if="{{item.state==3}}" style="color:red">【偏高】</span>
+            <span wx:if="{{item.state==4}}" style="color:red">【偏低】</span>
+          </block>
+
+          <em style="width:400rpx;line-height:35rpx;margin-top:-7rpx">{{item.entryName}} ({{item.entryContent}})
+
+            <i style="{{item.state==1?'margin-left:20rpx;dispaly:inline;color:green':'margin-left:20rpx;dispaly:inline;color:red'}}" wx:if="{{item.type==1}}">{{item.value}}{{item.unitName?item.unitName:''}}</i>
+
+          </em>
+        </p>
+      </block>
+    </block>
+  </view>
+  <viwe wx:if="{{image.length>0}}">
+    <view class="title">现场拍照：</view>
+    <view class="zp">
+      <block wx:for='{{image}}' wx:key='index' wx:for-item='item'>
+        <image bindtap='topic_preview' data-id='{{item}}' data-url='{{item}}' mode="aspectFill" src='{{item}}' data-index="{{index}}"></image>
+      </block>
+    </view>
+  </viwe>
+  <viwe wx:if="{{voice!= ''}}">
+    <view class="title" bindtap="playRecordAudio" data-type="1">
+      语音信息
+      <span style="float:right;font-size:27rpx">{{playAudioShow?'播放中...':'点击播放'}}</span>
+      <image class="yy" mode="widthFix" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy.png" />
+    </view>
+  </viwe>
+  <view class="title">备注：</view>
+  <view class="jc jcb">
+    <p>
+      <em>{{remark}}</em>
+    </p>
+  </view>
+</viwe>
+<viwe class="box" wx:if="{{beforeImage}}">
+  <view class="title title2">整改处理</view>
+  <viwe wx:if="{{beforeImage}}">
+    <view class="title">未整改前照片：</view>
+    <view class="zp">
+      <block wx:for='{{beforeImage}}' wx:key='index' wx:for-item='item'>
+        <image bindtap='topic_preview2' data-id='{{item}}' data-url='{{item}}' mode="aspectFill" src='{{item}}' data-index="{{index}}"></image>
+      </block>
+    </view>
+  </viwe>
+  <viwe wx:if="{{results}}">
+    <view class="title">未整改前备注：</view>
+    <view class="jc jcb">
+      <p>
+        <em>{{results.description?results.description:''}}</em>
+      </p>
+    </view>
+  </viwe>
+  <viwe wx:if="{{resultImage}}">
+    <view class="title">整改后照片：</view>
+    <view class="zp">
+      <block wx:for='{{resultImage}}' wx:key='index' wx:for-item='item'>
+        <image bindtap='topic_preview3' data-id='{{item}}' data-url='{{item}}' mode="aspectFill" src='{{item}}' data-index="{{index}}"></image>
+      </block>
+    </view>
+  </viwe>
+  <viwe wx:if="{{results}}">
+    <view class="title">整改后备注：</view>
+    <view class="jc jcb">
+      <p>
+        <em>{{results.remark?results.remark:''}}</em>
+      </p>
+    </view>
+  </viwe>
+</viwe>
+<view class="hr"></view>
+<danger-btn />

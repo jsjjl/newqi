@@ -1,0 +1,36 @@
+.xy_postbox_f i,
+.xy_postbox_t span {
+    float: right;
+}
+
+.g1,.gnull {
+     padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: rgba(5, 150, 105, 1);
+  background-color: rgba(209, 250, 229, 1);display: inline;float: revert;
+}
+
+.g0 {
+    padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: rgba(217, 119, 6, 1);
+  background-color: rgba(254, 243, 199, 1);display: inline;float: revert;
+}
+
+.g2 {
+      padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  color: rgb(11, 110, 202);
+  background-color: rgb(164, 199, 231);display: inline;float: revert;
+}
+
+.g3 {
+  padding: 4rpx 16rpx;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  background-color: rgba(254, 226, 226, 1);
+  color: rgba(220, 38, 38, 1);display: inline;float: revert;
+}

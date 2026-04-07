@@ -1,0 +1,6 @@
+page {
+  background: var(--bg-color, #f5f6f8);
+}
+button::after {
+  border: none;
+}

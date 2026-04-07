@@ -1,0 +1,108 @@
+<view class="form_box form_box_checked">
+    <p>是否匿名</p>
+    <switch checked="{{isAnonymous}}" bindchange="switch1Change" class="form_boxr" />
+</view>
+<block wx:if="{{isAnonymous==false}}">
+    <view class="form_box ">
+        <p>姓名</p>
+        <input class="form_boxi" type="text" placeholder="请输入" bindinput="_name" placeholder-class="placeholder" value="{{name}}" />
+    </view>
+    <view class="form_box ">
+        <p>工号</p>
+        <input class="form_boxi" type="text" placeholder="请输入" bindinput="_empno" placeholder-class="placeholder" value="{{empno}}" />
+    </view>
+    <view class="form_box ">
+        <p>联系方式</p>
+        <input class="form_boxi" type="text" placeholder="请输入" bindinput="_phone" placeholder-class="placeholder" value="{{phone}}" />
+    </view>
+</block>
+<view class="form_box form_box_img">
+    <p>
+        巡检图片
+        <span>请上传图片保持清晰</span>
+    </p>
+    <view class="tpx">
+        <view class="tpadd" bindtap="addimg">
+            <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/img.png" mode="widthFix" />
+        </view>
+        <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+            <view class="tpt">
+                <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+                <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+            </view>
+        </block>
+    </view>
+</view>
+<view class=" form_box_ly">
+    <view class='form_box_ly_p'>录音</view>
+    <view class="ly lyx">
+        <view class="editWrapBox" style="padding: 0;width: 100%; margin: 0;    box-shadow: none;">
+            <!-- 未录音 -->
+            <block wx:if="{{noRecordShow}}">
+                <view class="ks" bindtap="authorize">
+                    <p>点击开始录音</p>
+                    <i></i>
+                </view>
+            </block>
+            <!-- 录制语音中 -->
+            <block wx:if="{{recordLuzhiShow}}">
+                <view class="ks" bindtap="stopRecordAudio">
+                    <p>
+                        录音中(已录制
+                        <text class="numberSize">{{countNume}}s</text>
+                        ),再次点击按钮即可停止录制
+                    </p>
+                    <i class="iconfont icon-maikefenghuatongyuyin icon"></i>
+                </view>
+            </block>
+            <!-- 播放语音中 -->
+            <view wx:if="{{playAudioShow}}">
+                <view class="bft">
+                    <p>播放中</p>
+                    <image class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image>
+                </view>
+            </view>
+            <!-- 录音完成 -->
+            <block wx:if="{{finishRecordShow}}">
+                <view class="bft">
+                    <p bindtap="playRecordAudio" data-type="1">点击播放</p>
+                    <image bindtap="playRecordAudio" data-type="1" class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image>
+                    <image class="bftd" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" mode="aspectFill" bindtap="recycleRecordAudio"></image>
+                </view>
+            </block>
+            <!-- 已经存在语音 -->
+            <!-- <view class="headerContentWrap" wx:if="{{extistRecordShow}}">
+    <view class="headerInWrapItem">
+      <view bindtap="playRecordAudio" data-type="2"><button class="luyinWrap2"><i class="iconfont icon-bofanganniu"></i></button>
+        <view class="actionName">点击播放录音2</view>
+      </view>
+      <view class="delText" bindtap="deleteRecord">删除</view>
+    </view>
+  </view> -->
+            <!-- 保存按钮 -->
+            <!-- <button class="saveinfo" wx:if="{{finishRecordShow}}" bindtap="saveRocordAudio">保存</button> -->
+        </view>
+        <!-- <view class="ks"><p>点击开录音</p><i></i></view> -->
+        <!-- <view class="bft"><p>点击播放</p><image class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image><image class="bftd" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" mode="aspectFill"></image></view> -->
+    </view>
+</view>
+<view class="form_box ">
+    <p>上报位置</p>
+    <input class="form_boxi" type="text" placeholder="请输入" bindinput="bindKeyInput" placeholder-class="placeholder" value="{{location}}" />
+</view>
+<view class="form_box ">
+    <p>上报内容</p>
+    <textarea bindblur="bindTextAreaBlur" class="bzbx" placeholder="请输入" />
+</view>
+<view class="form_box ">
+    <p>状态</p>
+    <view class="form_boxr">
+        <picker class="select_box" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <p class="{{index!=null?'':'a'}}">{{index!=null?array[index]:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+<view class="bthrr"></view>
+<view class="bt" bindtap="save">提交</view>
+<danger-btn />

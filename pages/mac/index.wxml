@@ -1,0 +1,106 @@
+<view class="main" style="padding: 20rpx;">
+    <view class="modern-card hover-scale" style="margin-bottom: 30rpx; padding: 30rpx; display: flex; align-items: center; justify-content: space-between; border-radius: var(--border-radius-xl);">
+        <view style="display: flex; align-items: center;">
+            <view style="width: 60rpx; height: 60rpx; background: linear-gradient(135deg, rgba(22,119,255,0.1), rgba(22,119,255,0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20rpx;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/0.png" mode="widthFix" style="width: 32rpx; height: 32rpx;" />
+            </view>
+            <span style="font-size: 32rpx; font-weight: bold; color: var(--text-main);">园区切换</span>
+        </view>
+        <picker bindchange="bindPickerChange" value="{{index}}" range-key="areaName" range="{{array}}">
+            <view class="btn" style="background: var(--primary-color); color: #fff; padding: 12rpx 30rpx; border-radius: 40rpx; font-size: 26rpx; font-weight: 500; box-shadow: var(--shadow-sm);">
+                {{array[index].areaName}}
+            </view>
+        </picker>
+    </view>
+
+    <!-- 设备状态概览区 -->
+    <view class="section-title" style="font-size: 34rpx; font-weight: bold; color: var(--text-main); margin: 40rpx 10rpx 20rpx; display: flex; align-items: center;">
+        <view style="width: 8rpx; height: 32rpx; background: var(--primary-color); border-radius: 4rpx; margin-right: 16rpx;"></view>
+        设备概览
+    </view>
+
+    <view class="grid-container" style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-bottom: 40rpx;">
+        <view class="modern-card hover-scale grid-item" bindtap="navindex">
+            <view class="icon-wrap" style="background: rgba(22,119,255,0.1);">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/02.png" mode="widthFix" />
+            </view>
+            <view class="item-text">所有设备状态</view>
+        </view>
+        <view class="modern-card hover-scale grid-item" bindtap="dnav1">
+            <view class="icon-wrap" style="background: rgba(239,68,68,0.1);">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/2.png" mode="widthFix" />
+            </view>
+            <view class="item-text">在线率统计</view>
+        </view>
+        <view class="modern-card hover-scale grid-item" bindtap="dnav4">
+            <view class="icon-wrap" style="background: rgba(245,158,11,0.1);">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/3.png" mode="widthFix" />
+            </view>
+            <view class="item-text">设备分类统计</view>
+        </view>
+    </view>
+
+    <!-- 告警信息区 -->
+    <view class="section-title" style="font-size: 34rpx; font-weight: bold; color: var(--text-main); margin: 40rpx 10rpx 20rpx; display: flex; align-items: center;">
+        <view style="width: 8rpx; height: 32rpx; background: #ef4444; border-radius: 4rpx; margin-right: 16rpx;"></view>
+        告警信息
+    </view>
+
+    <view class="list-container">
+        <view class="modern-card hover-scale list-item" bindtap="nav1">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/01.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">实时告警分类占比</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="nav2">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/02.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">实时告警信息</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="nav3">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/03.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">历史告警信息</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+    </view>
+
+    <!-- 统计图表区 -->
+    <view class="section-title" style="font-size: 34rpx; font-weight: bold; color: var(--text-main); margin: 40rpx 10rpx 20rpx; display: flex; align-items: center;">
+        <view style="width: 8rpx; height: 32rpx; background: #10b981; border-radius: 4rpx; margin-right: 16rpx;"></view>
+        统计图表
+    </view>
+
+    <view class="list-container" style="margin-bottom: 60rpx;">
+        <view class="modern-card hover-scale list-item" bindtap="cnav1">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/1.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">氧气储蓄罐</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="cnav2">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/02.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">空气机组运行时间</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="cnav3">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/03.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">负压机组运行时间</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="cnav4">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/04.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">汇流排告警次数</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="cnav5">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/05.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">主管网告警次数</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+        <view class="modern-card hover-scale list-item" bindtap="cnav6">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/06.png" mode="widthFix" class="item-icon" />
+            <span class="item-title">区域报警箱告警次数</span>
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="arrow" />
+        </view>
+    </view>
+</view>
+<danger-btn />

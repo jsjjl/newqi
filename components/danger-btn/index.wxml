@@ -1,0 +1,4 @@
+<view class="float-danger-btn" bindtap="goToDanger">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg" class="float-icon"></image>
+  <text class="float-text">随手拍</text>
+</view>

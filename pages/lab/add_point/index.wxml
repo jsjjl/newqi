@@ -1,0 +1,17 @@
+<view class="page">
+  <view class="form-group">
+    <view class="label"><text style="color:red">*</text> 编号</view>
+    <input class="input" placeholder="请输入点位编号" model:value="{{pointSn}}" />
+  </view>
+  <view class="form-group">
+    <view class="label"><text style="color:red">*</text> 楼层</view>
+    <input class="input" placeholder="请输入楼层" model:value="{{floor}}" />
+  </view>
+  <view class="form-group">
+    <view class="label"><text style="color:red">*</text> 区域</view>
+    <input class="input" placeholder="请输入区域" model:value="{{area}}" />
+  </view>
+
+  <view class="btn-submit" bindtap="submit">确定提交</view>
+</view>
+<danger-btn />

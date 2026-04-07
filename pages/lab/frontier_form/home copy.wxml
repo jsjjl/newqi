@@ -1,0 +1,128 @@
+<view wx:if="{{myxx}}">
+  <view class="top">
+    <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/map.png" mode="widthFix" />
+    <p>点位: {{name}}</p>
+    <span>
+      <em>正常</em>
+      <em>异常</em>
+    </span>
+  </view>
+  <block wx:for='{{entries_list}}' wx:key='index' wx:for-item='item'>
+    <view class="{{item.state==3?'topb del':'topb'}}">
+      <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/del.png" mode="widthFix" bindtap="delChange" data-index="{{index}}" wx:if="{{item.state!=3}}" />
+      <p>
+        <block wx:if="{{item.state==3}}">【未涉及】</block>
+        {{item.entryName}}
+      </p>
+      <radio-group name="radio" wx:if="{{item.state!=3}}" bindchange="switch1Change" data-index="{{index}}" class="sw">
+        <label class="swb" style="width: 100rpx; text-align: center; display: inline-table;">
+          <radio value="1" />
+        </label>
+        <label class="swb err" style="width: 100rpx; text-align: center; display: inline-table;">
+          <radio value="2" class="err" />
+        </label>
+      </radio-group>
+       <br/>
+       
+      <!-- <switch wx:if="{{item.state!=3}}" class="sw" color="#1568EA" checked="{{item.state==1?true:false}}" bindchange="switch1Change"  data-index="{{index}}"/> -->
+      <span wx:if="{{item.state==3}}" bindtap="huiChange" data-index="{{index}}">恢复</span>
+      <span class="hdx" wx:if="{{item.entryContent}}" style="width:100%;margin:0rpx 0 10rpx 0;box-sizing: border-box;padding:0 0 0 45rpx;color:red">{{item.entryContent}}</span>
+    </view>
+  </block>
+  <!-- <view class="topb">
+    <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/del.png" mode="widthFix" />
+    <p>配电房照明是否正常</p>
+    <switch class="sw" color="#1568EA" checked="{{switch1Checked}}" bindchange="switch1Change"/>
+</view>
+<view class="topb">
+    <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/del.png" mode="widthFix" />
+    <p>配电房照明是否正常</p>
+    <switch class="sw" color="#1568EA" checked="{{switch1Checked}}" bindchange="switch1Change"/>
+</view>
+<view class="topb del">
+    <p>【未涉及】配电房照明是否正常</p>
+    <span>恢复</span>
+</view> -->
+  <view class="bz">
+    <p>备注</p>
+    <textarea bindblur="bindTextAreaBlur" class="bzb" placeholder="请输入" />
+  </view>
+  <view class="title">
+    <!-- <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/img.png" mode="widthFix" /> -->
+    <p>现场拍照</p>
+  </view>
+  <view class="tp">
+    <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+      <view class="tpt">
+        <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+        <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+      </view>
+    </block>
+    <view class="tpadd" bindtap="addimg">
+      <p>+</p>
+      <span>添加照片</span>
+    </view>
+  </view>
+  <view class="title">
+    <!-- <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/so.png" mode="widthFix" /> -->
+    <p>录音</p>
+  </view>
+  <view class="ly">
+    <view class="editWrapBox" style="padding: 0;width: 100%; margin: 0;    box-shadow: none;">
+      <!-- 未录音 -->
+      <block wx:if="{{noRecordShow}}">
+        <view class="ks" bindtap="authorize">
+          <p>点击开始录音</p>
+          <i></i>
+        </view>
+      </block>
+      <!-- 录制语音中 -->
+      <block wx:if="{{recordLuzhiShow}}">
+        <view class="ks" bindtap="stopRecordAudio">
+          <p>
+            录音中（已录制
+            <text class="numberSize">{{countNume}}s</text>
+            ），再次点击按钮即可停止录制
+          </p>
+          <i class="iconfont icon-maikefenghuatongyuyin icon"></i>
+        </view>
+      </block>
+      <!-- 播放语音中 -->
+      <view wx:if="{{playAudioShow}}">
+        <view class="bft">
+          <p>播放中</p>
+          <image class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image>
+        </view>
+      </view>
+      <!-- 录音完成 -->
+      <block wx:if="{{finishRecordShow}}">
+        <view class="bft">
+          <p bindtap="playRecordAudio" data-type="1">点击播放</p>
+          <image bindtap="playRecordAudio" data-type="1" class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image>
+          <image class="bftd" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" mode="aspectFill" bindtap="recycleRecordAudio"></image>
+        </view>
+      </block>
+      <!-- 已经存在语音 -->
+      <!-- <view class="headerContentWrap" wx:if="{{extistRecordShow}}">
+    <view class="headerInWrapItem">
+      <view bindtap="playRecordAudio" data-type="2"><button class="luyinWrap2"><i class="iconfont icon-bofanganniu"></i></button>
+        <view class="actionName">点击播放录音2</view>
+      </view>
+      <view class="delText" bindtap="deleteRecord">删除</view>
+    </view>
+  </view> -->
+      <!-- 保存按钮 -->
+      <!-- <button class="saveinfo" wx:if="{{finishRecordShow}}" bindtap="saveRocordAudio">保存</button> -->
+    </view>
+    <!-- <view class="ks"><p>点击开录音</p><i></i></view> -->
+    <!-- <view class="bft"><p>点击播放</p><image class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image><image class="bftd" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" mode="aspectFill"></image></view> -->
+  </view>
+ 
+  <block wx:if="{{ywt}}">
+    <view class="bt bt2" bindtap="save" data-id="1">现场整改</view>
+  </block>
+  <view class="bt" bindtap="save">
+    <block wx:if="{{ywt}}">上报整改</block>
+    <block wx:else>提交</block>
+  </view> <view class="bthr"></view>
+</view>

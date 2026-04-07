@@ -1,0 +1,344 @@
+/* 全局样式重置 */
+page {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-color, #f5f6f8);
+}
+
+/* 容器布局 */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* 左侧导航栏 */
+.nav {
+  width: 220rpx;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 2rpx 0 10rpx rgba(0, 0, 0, 0.05);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+}
+
+.nav-item {
+  padding: 36rpx 20rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: var(--text-muted);
+  border-bottom: 1rpx solid var(--border-color);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item.active {
+  background-color: transparent;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 28rpx;
+}
+
+.nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8rpx;
+  height: 40rpx;
+  background: var(--primary-color);
+  border-radius: 0 4rpx 4rpx 0;
+}
+
+/* 右侧内容区 */
+.content {
+  padding: 24rpx 24rpx 200rpx;
+  position: fixed;
+  right: 0;
+  width: 530rpx;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  top: 0;
+  box-sizing: border-box;
+}
+
+/* 巡查列表项 */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  width: 100%;
+}
+
+.item {
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.item:active {
+  transform: scale(0.98);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16rpx;
+}
+
+.item-name {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: var(--text-main);
+  flex: 1;
+}
+
+.item-detail {
+  background-color: rgba(22,119,255,0.1);
+  color: var(--primary-color);
+  font-size: 24rpx;
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+  font-weight: 500;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  font-size: 24rpx;
+  color: var(--text-sub);
+}
+
+/* 提交按钮 */
+.submit-btn {
+  position: fixed;
+  bottom: 0;
+  left: 220rpx;
+  right: 0;
+  background-color: var(--surface-color);
+  padding: 20rpx 30rpx 40rpx;
+  text-align: center;
+  box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.05);
+  z-index: 20;
+}
+
+.btn-text {
+  display: block;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  font-size: 32rpx;
+  font-weight: bold;
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 44rpx;
+  box-shadow: 0 8rpx 16rpx rgba(22,119,255,0.2);
+}
+
+/* 详情弹窗 */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 650rpx;
+  height: 100vh;
+  background-color: var(--surface-color);
+  box-shadow: -4rpx 0 20rpx rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 999;
+  overflow-y: auto;
+}
+
+.modal.show {
+  transform: translateX(0);
+}
+
+.modal-header {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--text-main);
+  padding: 40rpx 30rpx;
+  border-bottom: 1rpx solid var(--border-color);
+}
+
+.modal-body {
+  padding: 30rpx;
+  padding-bottom: 120rpx;
+}
+
+.closeModal {
+  display: block;
+  width: 90%;
+  text-align: center;
+  padding: 24rpx;
+  background-color: #f5f6f8;
+  color: var(--text-sub);
+  font-size: 30rpx;
+  border-radius: 44rpx;
+  margin: 40rpx auto;
+  font-weight: 500;
+}
+
+.bgbj {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
+.no-data {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 28rpx;
+  margin-top: 200rpx;
+}
+
+/* 弹窗补充样式 */
+.modal-info {
+  display: flex;
+  padding: 16rpx 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 28rpx;
+}
+.info-label {
+  width: 200rpx;
+  color: var(--text-muted);
+}
+.info-value {
+  color: var(--text-main);
+  flex: 1;
+}
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 40rpx 0 20rpx;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+}
+.section-title::before {
+  content: '';
+  width: 8rpx;
+  height: 32rpx;
+  background: var(--primary-color);
+  margin-right: 16rpx;
+  border-radius: 4rpx;
+}
+
+.check-item {
+  padding: 20rpx;
+  background: #f9fafb;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20rpx;
+}
+.check-name {
+  font-weight: bold;
+  color: var(--text-main);
+  margin-bottom: 12rpx;
+  font-size: 28rpx;
+}
+.check-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+  color: var(--text-sub);
+  font-size: 26rpx;
+}
+.check-status {
+  display: inline-block;
+  padding: 4rpx 12rpx;
+  border-radius: 6rpx;
+  margin-top: 8rpx;
+  align-self: flex-start;
+}
+.normal {
+  color: #10b981;
+  background: rgba(16,185,129,0.1);
+}
+.abnormal {
+  color: #ef4444;
+  background: rgba(239,68,68,0.1);
+}
+
+.maintain-item, .repair-item {
+  padding: 24rpx;
+  background: #f9fafb;
+  border-radius: var(--border-radius-md);
+  margin-bottom: 20rpx;
+}
+.maintain-content, .repair-content {
+  margin-bottom: 16rpx;
+  font-size: 28rpx;
+  color: var(--text-main);
+}
+.maintain-meta, .repair-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10rpx;
+  font-size: 26rpx;
+  color: var(--text-sub);
+}
+.label {
+  color: var(--text-muted);
+}
+.has-attachment {
+  color: var(--primary-color);
+  font-size: 26rpx;
+}
+.attachments {
+  margin: 24rpx 0;
+}
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+.attach-img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 12rpx;
+}
+.video-list {
+  margin-top: 16rpx;
+}
+.video-item {
+  width: 160rpx;
+  height: 120rpx;
+  background: rgba(0,0,0,0.05);
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  font-size: 26rpx;
+}
+.detail-item {
+  display: flex;
+  margin: 20rpx 0;
+  font-size: 28rpx;
+}
+.detail-item .label {
+  width: 200rpx;
+  flex-shrink: 0;
+}
+.detail-item .value {
+  flex: 1;
+  color: var(--text-main);
+}

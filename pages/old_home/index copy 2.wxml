@@ -1,0 +1,468 @@
+<view class="top">
+    <!-- <view class="tl"  bindtap="nav1">巡检任务提醒({{array}})</view>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/sm.png" class="tr" mode="widthFix"  bindtap="sm"/> -->
+    <!-- <block wx:for="{{zxlb}}" wx:key="item">
+        <image wx:if="{{item.icon}}" lazy-load bindtap="gotozx2" data-categoryid="{{item.id}}" mode="widthFix" class="sfl-image" data-link="{{item.name}}" src="{{item.icon}}"></image>
+      </block> -->
+    <!-- <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/1.png" mode="widthFix" />
+        <span>氧气储蓄罐</span>
+        <p>总剩余量:<em>10000</em></p>
+    </view> -->
+    <!-- <view class="bj"></view> -->
+    <!-- <view class="boxs boxs8 ">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/0.png" mode="widthFix" />
+            <span>园区切换</span>
+            <picker bindchange="bindPickerChange" value="{{index}}" range-key="areaName" range="{{array}}" class="btn">
+                <view class="">{{array[index].areaName}}</view>
+            </picker>
+        </view>
+    </view> -->
+    <view class="boxs" wx:if="{{ec2}}">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/1.png" mode="widthFix" />
+            <span>氧气储蓄罐</span>
+            <p>总余量：{{yqzong?yqzong:'-'}}m³</p>
+        </view>
+        <ec-canvas class="ec-canvas2" ec="{{ec2}}"></ec-canvas>
+    </view>
+    <view class="boxs boxs2">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/6.png" mode="widthFix" />
+            <span>主管网压力</span>
+        </view>
+         <!-- wx:if="{{areaId=='1921753035498872833'}}" -->
+        <view class="boxs_f boxs_f01" wx:if="{{deviceList.length > 0}}">
+            
+
+             <p wx:for="{{deviceList}}" wx:key="index" wx:for-item="item" wx:for-index="index">
+          
+                <ec-canvas class="ec-canvasf" ec="{{ ecList[index] }}"></ec-canvas>
+                <span>
+                    {{ item.press }}
+                    <i>{{item.type=='VACUUM'?'KPa':'MPa'}}</i>
+                    <b class="{{ef2_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>{{ item.name }}</em>
+            </p>
+            <!-- 
+              <p>
+          
+                <ec-canvas class="ec-canvasf" ec="{{ ef2 }}"></ec-canvas>
+                <span>
+                    {{ ef2_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef2_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>氧气压力值</em>
+            </p>
+             <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef2 }}"></ec-canvas>
+                <span>
+                    {{ ef2_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef2_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>氧气压力值</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef3 }}"></ec-canvas>
+                <span>
+                    {{ ef3_press.press }}
+                    <i>KPa</i>
+                    <b class="{{ef3_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>负压压力值</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef1 }}"></ec-canvas>
+                <span>
+                    {{ ef1_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef1_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>空气压力值</em>
+            </p> -->
+        </view>
+        <!-- <view class="boxs_f boxs_f01" wx:elif="{{areaId=='1797512499696791554'}}">
+            
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef1 }}"></ec-canvas>
+                <span>
+                    {{ ef1_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef1_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>氧气主管网</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef3 }}"></ec-canvas>
+                <span>
+                    {{ ef3_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef3_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>空气主管网</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef2 }}"></ec-canvas>
+                <span>
+                    {{ ef2_press.press }}
+                    <i>KPa</i>
+                    <b class="{{ef2_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>真空主管网</em>
+            </p>
+        </view>
+        <view class="boxs_f boxs_f01 boxs_f01d" wx:else>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef4 }}"></ec-canvas>
+                <span>
+                    {{ ef4_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef4_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>氧气主管网</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef2 }}"></ec-canvas>
+                <span>
+                    {{ ef2_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef2_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>1号楼地下室空气主管网</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef3 }}"></ec-canvas>
+                <span>
+                    {{ ef3_press.press }}
+                    <i>KPa</i>
+                    <b class="{{ef3_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>1号楼地下室真空主管网</em>
+            </p>
+            <p>
+                
+                <ec-canvas class="ec-canvasf" ec="{{ ef1 }}"></ec-canvas>
+                <span>
+                    {{ ef1_press.press }}
+                    <i>MPa</i>
+                    <b class="{{ef1_press.warningFlag==1?'err':''}}"></b>
+                </span>
+                <em>4号楼地下室空气主管网</em>
+            </p>
+        </view> -->
+    </view>
+    <view class="boxs boxs3" wx:for="{{hpl}}" wx:key="item">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/5.png" mode="widthFix" />
+            <span>{{item.name}}</span>
+        </view>
+        <view class="boxs_f boxs_f01d">
+            <p>
+                <span>
+                    {{item.leftPressure?item.leftPressure:'-'}}
+                    <i wx:if="{{item.leftPressure!='OK' && item.leftPressure && item.leftPressure !='--'&& item.leftPressure !='--1'}}">{{areaId=='1797512499696791554'?'bar':'MPa'}}</i>
+                </span>
+                <em>左侧压力</em>
+            </p>
+            <p>
+                <span>
+                    {{item.rightPressure?item.rightPressure:'-'}}
+                    <i wx:if="{{item.rightPressure!='OK' && item.rightPressure && item.rightPressure !='--'&& item.rightPressure !='--1'}}">{{areaId=='1797512499696791554'?'bar':'MPa'}}</i>
+                </span>
+                <em>右侧压力</em>
+            </p>
+            <p>
+                <span>{{item.ros?item.ros:'-'}}</span>
+                <em>在用状态</em>
+            </p>
+            <p>
+                <span>
+                    {{item.totalPressure?item.totalPressure:'-'}}
+                    <i wx:if="{{item.totalPressure!='OK' && item.totalPressure  && item.totalPressure && item.totalPressure !='--'&& item.totalPressure !='--1'}}">{{areaId=='1797512499696791554'?'bar':'MPa'}}</i>
+                </span>
+                <em>出口压力</em>
+            </p>
+        </view>
+    </view>
+    <view class="boxs boxs4">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/1.png" mode="widthFix" />
+            <span>气体浓度</span>
+        </view>
+        <view class="boxs_f">
+            <p wx:for="{{qtnd}}" wx:key="item">
+                <span>
+                    {{item.val}}
+                    <i>%VOL</i>
+                    <!-- <b></b> -->
+                </span>
+                <em>{{item.name}}</em>
+            </p>
+         
+        </view>
+    </view>
+    <view class="boxs boxs5">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/3.png" mode="widthFix" />
+            <span>空气机组</span>
+        </view>
+        <view class="tb">
+            <view class="tb_t jc" wx:if="{{kqjz.length>0}}">
+                <!-- <span>设备位置</span>
+                <span>设备名称</span>
+                <span>运行状态</span>
+                <span>运行时间</span> -->
+                <span>设备名称</span>
+                <span>警告状态</span>
+                <span>运行状态</span>
+                <span>运行时长</span>
+            </view>
+            <view class="tb_f">
+                <view class="nomsg" wx:if="{{kqjz.length==0}}">暂无数据</view>
+                <p wx:for="{{kqjz}}" wx:key="item">
+                    <!-- <span>{{item.position}}楼号</span>
+                    <span>{{item.name}}</span>
+                    <span wx:if="{{item.warningFlag == false}}">运行</span>
+                    <span wx:else class="red">停止</span>
+                    <span>{{item.totalRunTime}}</span> -->
+                    <span>{{item.name}}</span>
+                    <span wx:if="{{item.warningFlag == true}}" class="red">警告</span>
+                    <span wx:else>正常</span>
+                    <span wx:if="{{item.runFlag == true}}">运行</span>
+                    <span wx:else class="red">停止</span>
+                    <span>{{item.totalRunTime}}</span>
+                </p>
+            </view>
+        </view>
+    </view>
+    <view class="boxs boxs6">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/4.png" mode="widthFix" />
+            <span>真空机组</span>
+        </view>
+        <view class="tb">
+            <view class="tb_t jc" wx:if="{{fyjz.length>0}}">
+                <span>设备名称</span>
+                <span>警告状态</span>
+                <span>运行状态</span>
+                <span>运行时长</span>
+            </view>
+            <view class="tb_f">
+                <view class="nomsg" wx:if="{{fyjz.length==0}}">暂无数据</view>
+                <p wx:for="{{fyjz}}" wx:key="item">
+                    <!-- <span>{{item.position}}楼号</span> -->
+                    <span>{{item.name}}</span>
+                    <span wx:if="{{item.warningFlag == true}}" class="red">警告</span>
+                    <span wx:else>正常</span>
+                    <span wx:if="{{item.runFlag == true}}">运行</span>
+                    <span wx:else class="red">停止</span>
+                    <span>{{item.totalRuntime}}</span>
+                </p>
+            </view>
+        </view>
+    </view>
+    <view class="boxs boxs7">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/8.png" mode="widthFix" />
+            <span>设备在线统计</span>
+        </view>
+        <block>
+            <view class="tb tb8">
+                <view class="tb_t jc" wx:if="{{sbzxtj.length>0}}">
+                    <!-- <span >楼宇</span> -->
+                    <span>设备类型</span>
+                    <span>总数量</span>
+                    <span>在线离线</span>
+                </view>
+                <view class="tb_f">
+                    <view class="nomsg" wx:if="{{sbzxtj.length==0}}">暂无数据</view>
+                    <p wx:for="{{sbzxtj}}" wx:for-item="itemt" wx:key="index">
+                        <!-- <span>{{itemt.buildingNo}}</span> -->
+                        <span>{{itemt.typeName}}</span>
+                        <span>{{itemt.totalCount}}</span>
+                        <span>{{itemt.onlineCount}}/{{itemt.offlineCount}}</span>
+                    </p>
+                </view>
+            </view>
+            <view class="fgx"></view>
+        </block>
+    </view>
+    <view class="boxs boxs8 last">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/01/7.png" mode="widthFix" />
+            <span>区域告警箱</span>
+            <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}"  class="btn">
+                <view class="">{{array[index]}}
+                </view>
+            </picker> -->
+        </view>
+        <view class="nomsg" wx:if="{{qygjx.length==0}}">暂无数据</view>
+        <view class="tb tb7" wx:for="{{qygjx}}" wx:for-item="itemx" wx:key="index">
+            <!-- -{{itemx.position}}层-660 -->
+            <view class="jbt">
+                <!-- {{itemx.buildingNo}}#楼 -->
+                {{itemx.name}}
+            </view>
+            <view class="tb_t tb_t2 jc" wx:if="{{areaId=='1797512499696791554'}}">
+                <!-- style="opacity: 0;" -->
+                <span>介质</span>
+                <span>当前压力</span>
+                <!-- <span>当前流量</span>
+                <span>总流量</span> -->
+                <span>状态</span>
+            </view>
+            <view class="tb_t tb_t2 jc" wx:else>
+                <span>介质</span>
+                <span>当前压力</span>
+                <span>状态</span>
+            </view>
+            <!-- 高新 -->
+            <view class="tb_f tb_f2" wx:if="{{areaId=='1797512499696791554'}}">
+                <p>
+                    <span>氧气</span>
+                    <span>{{itemx.ch1CurrentPressure?itemx.ch1CurrentPressure:'-'}}</span>
+                    <!-- <span>{{itemx.ch2CurrentFlow?itemx.ch2CurrentFlow:'-'}}</span>
+                    <span>{{itemx.ch1TotalFlow?itemx.ch1TotalFlow:'-'}}</span> -->
+                    <span wx:if="{{itemx.ch1OkError == '正常'||itemx.ch1OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">异常</span>
+                </p>
+                <p>
+                    <span>空气</span>
+                    <span>{{itemx.ch2CurrentPressure?itemx.ch2CurrentPressure:'-'}}</span>
+                    <!-- <span>{{itemx.ch3CurrentFlow?itemx.ch3CurrentFlow:'-'}}</span>
+                    <span>{{itemx.ch2TotalFlow?itemx.ch2TotalFlow:'-'}}</span> -->
+                    <span wx:if="{{itemx.ch2OkError == '正常'||itemx.ch2OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">异常</span>
+                </p>
+                <p>
+                    <span>吸引</span>
+                    <span>{{itemx.ch3CurrentPressure?itemx.ch3CurrentPressure:'-'}}</span>
+                    <!-- <span>{{itemx.ch4CurrentFlow?itemx.ch4CurrentFlow:'-'}}</span>
+                    <span>{{itemx.ch3TotalFlow?itemx.ch3TotalFlow:'-'}}</span> -->
+                    <span wx:if="{{itemx.ch3OkError == '正常'||itemx.ch3OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">异常</span>
+                </p>
+            </view>
+            <view class="tb_f tb_f2" wx:elif="{{areaId=='1921753035498872833'}}">
+                <p wx:if="{{itemx.ch1Name}}">
+                    <span>{{itemx.ch1Name}}</span>
+                    <span>{{itemx.ch1Val?itemx.ch1Val:'-'}}{{itemx.ch1Unit}}</span>
+                    <span wx:if="{{itemx.ch1OkError == '正常'||itemx.ch1OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch1OkError?itemx.ch1OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch2Name}}">
+                    <span>{{itemx.ch2Name}}</span>
+                    <span>{{itemx.ch2Val?itemx.ch2Val:'-'}}{{itemx.ch2Unit}}</span>
+                    <span wx:if="{{itemx.ch2OkError == '正常'||itemx.ch2OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch2OkError?itemx.ch2OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch3Name}}">
+                    <span>{{itemx.ch3Name}}</span>
+                    <span>{{itemx.ch3Val?itemx.ch3Val:'-'}}{{itemx.ch3Unit}}</span>
+                    <span wx:if="{{itemx.ch3OkError == '正常'||itemx.ch3OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch3OkError?itemx.ch3OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch4Name}}">
+                    <span>{{itemx.ch4Name}}</span>
+                    <span>{{itemx.ch4Val?itemx.ch4Val:'-'}}{{itemx.ch4Val?itemx.ch4Unit:''}}</span>
+                    <span wx:if="{{itemx.ch4OkError == '正常'||itemx.ch4OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch4OkError?itemx.ch4OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch5Name}}">
+                    <span>{{itemx.ch5Name}}</span>
+                    <span>{{itemx.ch5Val?itemx.ch5Val:'-'}}{{itemx.ch5Val?itemx.ch5Val:''}}</span>
+                    <span wx:if="{{itemx.ch50kError == '正常'||itemx.ch50kError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch50kError?itemx.ch50kError:'-'}}</span>
+                </p>
+            </view>
+            <view class="tb_f tb_f2" wx:else>
+                <p wx:if="{{itemx.ch1Name}}">
+                    <span>{{itemx.ch1Name}}</span>
+                    <span>
+                        {{itemx.ch1CurrentPressure?itemx.ch1CurrentPressure:'-'}}{{itemx.ch1Name=='真空'?'KPa':'MPa'}}
+                    </span>
+                    <span wx:if="{{itemx.ch1OkError == '正常'||itemx.ch1OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch1OkError?itemx.ch1OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch2Name}}">
+                    <span>{{itemx.ch2Name}}</span>
+                    <span>
+                        {{itemx.ch2CurrentPressure?itemx.ch2CurrentPressure:'-'}}{{itemx.ch2Name=='真空'?'KPa':'MPa'}}
+                    </span>
+                    <span wx:if="{{itemx.ch2OkError == '正常'||itemx.ch2OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch2OkError?itemx.ch2OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch3Name}}">
+                    <span>{{itemx.ch3Name}}</span>
+                    <span>
+                        {{itemx.ch3CurrentPressure?itemx.ch3CurrentPressure:'-'}}{{itemx.ch3Name=='真空'?'KPa':'MPa'}}
+                    </span>
+                    <span wx:if="{{itemx.ch3OkError == '正常'||itemx.ch3OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch3OkError?itemx.ch3OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch4Name}}">
+                    <span>{{itemx.ch4Name}}</span>
+                    <span>
+                        {{itemx.ch4CurrentPressure?itemx.ch4CurrentPressure:'-'}}{{itemx.ch4Name=='真空'?'KPa':'MPa'}}
+                    </span>
+                    <span wx:if="{{itemx.ch4OkError == '正常'||itemx.ch4OkError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch4OkError?itemx.ch4OkError:'-'}}</span>
+                </p>
+                <p wx:if="{{itemx.ch5Name}}">
+                    <span>{{itemx.ch5Name}}</span>
+                    <span>
+                        {{itemx.ch5CurrentPressure?itemx.ch5CurrentPressure:'-'}}{{itemx.ch5Name=='真空'?'KPa':'MPa'}}
+                    </span>
+                    <span wx:if="{{itemx.ch50kError == '正常'||itemx.ch50kError == 'OK'}}">正常</span>
+                    <span wx:else class="red">{{itemx.ch50kError?itemx.ch50kError:'-'}}</span>
+                </p>
+            </view>
+        </view>
+        <!-- <view class="tb tb7">
+            <view class="jbt">6#楼-4层-660</view>
+            <view class="tb_t">
+                <span style="opacity: 0;">气体</span>
+                <span>当前压力</span>
+                <span>当前流量</span>
+                <span>总流量</span>
+                <span>状态</span>
+            </view>
+            <view class="tb_f">
+                <p><span>氧气</span><span>4.9 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span>正常</span> </p>
+                <p><span>空气</span><span>0.0 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span
+                        class="red">异常</span></p>
+                <p><span>吸引</span><span>-0.7 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span>正常</span></p>
+            </view>
+        </view>
+        <view class="tb tb7">
+            <view class="jbt">6#楼-4层-660</view>
+            <view class="tb_t">
+                <span style="opacity: 0;">气体</span>
+                <span>当前压力</span>
+                <span>当前流量</span>
+                <span>总流量</span>
+                <span>状态</span>
+            </view>
+            <view class="tb_f">
+                <p><span>氧气</span><span>4.9 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span>正常</span> </p>
+                <p><span>空气</span><span>0.0 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span
+                        class="red">异常</span></p>
+                <p><span>吸引</span><span>-0.7 bar</span><span>0.0 L/min</span><span>0.0 L/min</span><span>正常</span></p>
+            </view>
+        </view> -->
+    </view>
+    <view class="clear"></view>
+</view>

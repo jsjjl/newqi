@@ -1,0 +1,46 @@
+<!-- <view class="top">
+  
+  <view class="topbox">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/dw.png" class="tr" mode="widthFix" />
+    <view class="tl">
+      <picker bindchange="bindPickerChangeCity" mode="selector" value="{{cityArray.name}}" range-key="{{'name'}}" range="{{array}}">
+        <view class="picker">{{pointId?array[index].name:'请选择巡检点位'}}</view>
+      </picker>
+   
+    </view>
+  </view>
+</view> -->
+<block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+  <view class="box" bindtap="toform" data-pointId="{{item.pointId?item.pointId:''}}" data-taskId="{{item.taskId?item.taskId:''}}">
+    <p class="{{item.state==1?'ok':'err'}}">
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/task.png" class="tr" mode="widthFix" />
+      <span>巡检状态</span>
+      <em>{{item.state==1?'正常':'异常'}}</em>
+    </p>
+    <p>
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/list1.png" class="tr" mode="widthFix" />
+      <span>巡检人员</span>
+      <em>{{item.submitterName}}</em>
+    </p>
+    <p>
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/list2.png" class="tr" mode="widthFix" />
+      <span>巡检时间</span>
+      <em>{{item.submitTime}}</em>
+    </p>
+    <p>
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/list3.png" class="tr" mode="widthFix" />
+      <span>巡检点位</span>
+      <em>{{item.pointName}}</em>
+    </p>
+    <p>
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/list2.png" class="tr" mode="widthFix" />
+      <span>巡检周期</span>
+      <em>{{item.cycle}}</em>
+    </p>
+  </view>
+</block>
+<view class="no" wx:if="{{no}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" />
+  <p>暂无数据</p>
+</view>
+<danger-btn />

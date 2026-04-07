@@ -1,0 +1,15 @@
+<view class="page" style="padding: 30rpx 24rpx;">
+    <view class="modern-card form_box" style="width: 100% !important; margin: 0 !important; border: none !important; box-sizing: border-box; padding: 40rpx 30rpx !important;">
+        <p style="font-size: 32rpx !important; color: var(--text-main); font-weight: 500; margin-bottom: 16rpx !important; margin-top: 0 !important;">旧密码</p>
+        <input class="form_boxi" password type="text" placeholder="请输入旧密码" bindinput="contactInput" placeholder-class="placeholder" value="{{oldPassword}}" style="border-bottom: none !important; background: #f9fafb; border-radius: var(--border-radius-md); padding: 0 24rpx; height: 88rpx; line-height: 88rpx; margin-bottom: 30rpx;" />
+        
+        <p style="font-size: 32rpx !important; color: var(--text-main); font-weight: 500; margin-bottom: 16rpx !important; margin-top: 0 !important;">新密码</p>
+        <input class="form_boxi" password type="text" placeholder="请输入新密码" bindinput="contactInput2" placeholder-class="placeholder" value="{{newPassword}}" style="border-bottom: none !important; background: #f9fafb; border-radius: var(--border-radius-md); padding: 0 24rpx; height: 88rpx; line-height: 88rpx; margin-bottom: 30rpx;" />
+        
+        <p style="font-size: 32rpx !important; color: var(--text-main); font-weight: 500; margin-bottom: 16rpx !important; margin-top: 0 !important;">确认新密码</p>
+        <input class="form_boxi" password type="text" placeholder="请再次输入新密码" bindinput="contactInput3" placeholder-class="placeholder" value="{{newPassword2}}" style="border-bottom: none !important; background: #f9fafb; border-radius: var(--border-radius-md); padding: 0 24rpx; height: 88rpx; line-height: 88rpx; margin-bottom: 0;" />
+    </view>
+
+    <view class="modern-btn hover-scale" bindtap="save" style="margin-top: 60rpx; width: 100%;">提交修改</view>
+</view>
+<danger-btn />

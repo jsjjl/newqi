@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+
+
+    <!-- <view class="bj"></view> -->    <view class="tab">
+        <span class="{{tab == 1 ? 'active' : ''}}"  bindtap="_tab" data-tab="1">剩余量统计</span>
+        <span class="{{tab == 2 ? 'active' : ''}}"  bindtap="_tab" data-tab="2">总剩余量统计</span>
+        <span class="{{tab == 3 ? 'active' : ''}}"  bindtap="_tab" data-tab="3">使用量统计</span>
+        <span class="{{tab == 4 ? 'active' : ''}}"  bindtap="_tab" data-tab="4">充装量统计</span>
+        <!-- <span class="{{tab == 5 ? 'active' : ''}}"  bindtap="_tab" data-tab="5">单罐总使用</span> -->
+    </view>
+    <view wx:if="{{canvasIsShow}}" class="container" >
+        <ec-canvas class="ec-canvas1" ec="{{ ec1 }}" wx:if="{{ec1}}"  id="mychart-dom-bar" canvas-id="mychart-bar"></ec-canvas>
+    </view>
+    <!-- <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/02.png" mode="widthFix" />
+        <span>空气机组运行时间统计图</span>
+    </view>
+    <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/03.png" mode="widthFix" />
+        <span>负压机组运行时间统计图</span>
+    </view>
+    <ec-canvas class="ec-canvas3" ec="{{ ec3 }}"></ec-canvas>
+    
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/04.png" mode="widthFix" />
+        <span>汇流排告警次数统计图</span>
+    </view>
+    <ec-canvas class="ec-canvas4" ec="{{ ec4 }}"></ec-canvas>
+    
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/05.png" mode="widthFix" />
+        <span>主管网告警次数统计图</span>
+    </view>
+    <ec-canvas class="ec-canvas5" ec="{{ ec5 }}"></ec-canvas>
+    
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/06.png" mode="widthFix" />
+        <span>区域报警箱告警次数统计图</span>
+    </view>
+    <ec-canvas class="ec-canvas6" ec="{{ ec6 }}"></ec-canvas> -->
+</view>
+<danger-btn />

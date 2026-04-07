@@ -1,0 +1,105 @@
+<view class="top">
+
+    <!-- <view class="bj"></view> --><view class="ant" bindtap="nav1">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/01.png" mode="widthFix" class="antl" />
+    <span>实时告警设备数量分类占比</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+<view class="ant" bindtap="nav2">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/02.png"mode="widthFix" class="antl" />
+    <span>实时告警信息</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+
+<view class="ant" bindtap="nav3">
+     <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/03.png" mode="widthFix" class="antl" />
+    <span>历史告警信息</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+
+    <!-- <view class="boxs">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/1.png" mode="widthFix" />
+            <span>实时告警设备数量分类占比</span>
+            <view class="tl">
+                <p><i style="background: #C1EBDD;"></i><span>正常</span></p>
+                <p><i style="background: #FFC851;"></i><span>告警</span></p>
+            </view>
+        </view>
+        <view class="boxs_f">
+            <p>
+                <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>氧气储蓄罐</em>
+            </p>
+            <p>
+                <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>空气机组</em>
+            </p>
+            <p>
+               <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>负压机组</em>
+            </p>
+            <p>
+                <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>汇流排</em>
+            </p>
+            <p>
+                <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>主管网</em>
+            </p>
+            <p>
+                <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+                <em>区域报警箱</em>
+            </p>
+        </view>
+    </view> -->
+
+    <!-- <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/1.png" mode="widthFix" />
+        <span>实时告警列表</span>
+    </view>          -->
+    <!-- <view class="fboxs">
+        <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>1号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view>
+        <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>2号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view>
+    </view> -->
+
+     <!-- <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/1.png" mode="widthFix" />
+        <span>历史告警列表</span>
+    </view>          -->
+    <!-- <view class="fboxs">
+        <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>1号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view>
+        <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>2号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view>
+    </view> -->
+
+
+
+</view>
+<danger-btn />

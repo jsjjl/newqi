@@ -1,0 +1,32 @@
+page {
+  background: var(--bg-color, #f4f6f9);
+}
+
+.main {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section-title {
+  margin-left: 10rpx;
+}
+
+.boxs {
+  /* No additional styles needed, using inline grid */
+}
+
+.box {
+  /* Flexbox handled inline */
+}
+
+.box_t {
+  /* Flexbox handled inline */
+}
+
+.box_img {
+  /* Handled inline */
+}
+
+.box-title {
+  /* Handled inline */
+}

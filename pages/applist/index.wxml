@@ -1,0 +1,18 @@
+<view class="main" style="padding: 30rpx 24rpx;">
+  <block wx:for="{{modules}}" wx:key="title">
+    <view class="section-title" style="font-weight: bold; font-size: 34rpx; display: flex; align-items: center; margin-bottom: 20rpx; color: var(--text-main);">
+      <image src="{{item.icon}}" mode="widthFix" class="{{item.className}}" style="width: 40rpx; height: 40rpx; margin-right: 16rpx;" />{{item.title}}
+    </view>
+    <view class="modern-card boxs" style="padding: 40rpx 20rpx 20rpx; margin-bottom: 40rpx; display: grid; grid-template-columns: repeat(4, 1fr); gap: 30rpx 0;">
+      <block wx:for="{{item.boxes}}" wx:key="title" wx:for-item="box">
+        <view class="box hover-scale" bindtap="go" data-id="{{box.url}}" data-sm="{{box.sm||''}}" style="display: flex; flex-direction: column; align-items: center;">
+          <view class="box_t" style="background: {{box.bg}}; border-radius: 30rpx; width: 100rpx; height: 100rpx; display: flex; justify-content: center; align-items: center; margin-bottom: 16rpx; box-shadow: 0 8rpx 16rpx rgba(0,0,0,0.05);">
+            <image src="{{box.icon}}" mode="aspectFit" class="box_img" style="width: 48rpx; height: 48rpx;" />
+          </view>
+          <view class="box-title" style="font-size: 26rpx; color: var(--text-main); font-weight: 500; text-align: center; line-height: 1.2;">{{box.title}}</view>
+        </view>
+      </block>
+    </view>
+  </block>
+</view>
+<danger-btn />

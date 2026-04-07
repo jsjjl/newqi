@@ -1,0 +1,59 @@
+<view class="page" style="padding-bottom: 120rpx;">
+    <!-- 检查日期 -->
+    <view class="modern-card date-container" style="margin: 24rpx; padding: 30rpx; border-radius: var(--border-radius-lg); display: flex; align-items: center;">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" mode="widthFix" style="width: 36rpx; height: 36rpx; margin-right: 16rpx;" />
+        <text class="date-text" style="font-size: 32rpx; color: var(--text-main); font-weight: bold;">检查日期：{{currentDate}}</text>
+    </view>
+
+    <!-- 检查项目列表 -->
+    <view class="check-list" style="padding: 0 24rpx;">
+        <view class="modern-card hover-scale check-item" wx:for="{{checkItems}}" wx:key="index" style="margin-bottom: 24rpx; padding: 30rpx; border-radius: var(--border-radius-lg); display: flex; flex-direction: column;">
+            <!-- 项目名称 -->
+            <view class="item-name" style="margin-bottom: 24rpx;">
+                <text class="item-index" style="color: var(--primary-color); font-weight: bold; font-size: 32rpx; margin-right: 12rpx;">{{index + 1}}.</text>
+                <text class="item-title" style="color: var(--text-main); font-size: 32rpx; font-weight: 500;">{{item.name}}</text>
+            </view>
+
+            <view style="display: flex; justify-content: space-between; align-items: center;">
+                <!-- 合格/不合格选择 -->
+                <view class="item-radio">
+                    <radio-group bindchange="handleRadioChange" data-index="{{index}}" style="display: flex;">
+                        <label class="radio-label radio-qualified {{item.result === '合格' ? 'radio-checked' : ''}}">
+                            <radio value="合格" checked="{{item.result === '合格'}}" color="#10b981" />
+                            <text>合格</text>
+                        </label>
+                        <label class="radio-label radio-unqualified {{item.result === '不合格' ? 'radio-checked' : ''}}">
+                            <radio value="不合格" class="bhg" checked="{{item.result === '不合格'}}" color="#ef4444" />
+                            <text>不合格</text>
+                        </label>
+                    </radio-group>
+                </view>
+
+                <!-- 图片上传区域 -->
+                <view class="item-image">
+                    <view class="upload-area" bindtap="chooseImage" data-index="{{index}}" style="width: 100rpx; height: 100rpx; background: #f9fafb; border: 2rpx dashed var(--border-color); border-radius: var(--border-radius-md); display: flex; justify-content: center; align-items: center;">
+                        <image wx:if="{{item.imgUrl}}" src="{{item.imgUrl}}" mode="aspectFill" class="preview-img" data-index="{{index}}" style="width: 100%; height: 100%; border-radius: var(--border-radius-md);"></image>
+                        <view wx:else class="add-icon" style="font-size: 40rpx; color: var(--text-muted);">+</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- 富文本说明 -->
+        <view class="modern-card remark-container" style="margin-bottom: 24rpx; padding: 30rpx; border-radius: var(--border-radius-lg);">
+            <text class="remark-title" style="font-size: 32rpx; font-weight: bold; color: var(--text-main); margin-bottom: 20rpx; display: block;">检查情况说明</text>
+            <textarea class="remark-input" placeholder="请输入检查情况说明..." bindinput="handleRemarkInput" value="{{remark}}" auto-height maxlength="500" style="width: 100%; min-height: 160rpx; background: #f9fafb; padding: 20rpx; box-sizing: border-box; border-radius: var(--border-radius-md); font-size: 28rpx; line-height: 1.5; color: var(--text-main); border: 1px solid transparent;"></textarea>
+        </view>
+    </view>
+
+    <!-- 提交按钮 -->
+    <view class="submit-btn" bindtap="submitForm" style="position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface-color); padding: 20rpx 30rpx 40rpx; box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.05); z-index: 10;">
+        <view class="btn-text" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: #fff; height: 88rpx; line-height: 88rpx; text-align: center; border-radius: 44rpx; font-size: 32rpx; font-weight: bold; box-shadow: 0 8rpx 16rpx rgba(22,119,255,0.2);">提交检查结果</view>
+    </view>
+
+    <!-- 图片预览弹窗 -->
+    <view class="preview-modal" wx:if="{{showPreview}}">
+        <image src="{{previewUrl}}" mode="widthFix" class="full-img" bindtap="closePreview"></image>
+    </view>
+</view>
+<danger-btn />

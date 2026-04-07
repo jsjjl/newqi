@@ -1,0 +1,15 @@
+<view class="top">
+
+
+    <!-- <view class="bj"></view> -->
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/3.png" mode="widthFix" />
+        <span>设备分类统计</span>
+    </view>
+    <view class="ech" wx:if="{{ec2}}">
+        <ec-canvas class="ec-canvas2" ec="{{ ec2 }}" wx:if="{{ec2}}"></ec-canvas>
+    </view> 
+    <view class="clear"></view>
+
+</view>
+<danger-btn />

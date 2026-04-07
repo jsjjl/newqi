@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#1677ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "主管网告警次数统计图",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

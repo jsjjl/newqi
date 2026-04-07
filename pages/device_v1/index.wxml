@@ -1,0 +1,98 @@
+<view class="top">
+
+    <!-- <view class="bj"></view> -->    
+<view class="ant" bindtap="nav1">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/2.png" mode="widthFix" class="antl" />
+    <span>设备实时在线率统计</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+<view class="ant" bindtap="nav2">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/02.png" mode="widthFix" class="antl" />
+    <span>近7天设备在线率图表</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+
+<view class="ant" bindtap="nav3">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/03.png" mode="widthFix" class="antl" />
+    <span>设备实时状态列表</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+
+<view class="ant" bindtap="nav4">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/3.png" mode="widthFix" class="antl" />
+    <span>设备分类统计</span>
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/more.png" mode="widthFix" class="antr" />
+</view>
+
+<!-- 
+
+
+    <view class="boxs">
+        <view class="title">
+            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/1.png" mode="widthFix" />
+            <span>设备实时状态</span>
+        </view>
+        <view class="boxs_f">
+            <p>
+                <span>10<i>个</i></span>
+                <em>总数</em>
+            </p>
+            <p>
+                <span>100<i>%</i></span>
+                <em>在线率</em>
+            </p>
+            <p>
+                <span>0<i>%</i></span>
+                <em>离线率</em>
+            </p>
+          
+        </view>
+    </view> -->
+<!-- 
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/2.png" mode="widthFix" />
+        <span>近7天设备在线率图表</span>
+    </view>
+    <view class="ech">
+        <ec-canvas class="ec-canvas1" ec="{{ ec1 }}"></ec-canvas>
+    </view>
+    <view class="clear"></view>
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/3.png" mode="widthFix" />
+        <span>设备分类统计</span>
+    </view>
+    <view class="ech">
+        <ec-canvas class="ec-canvas2" ec="{{ ec2 }}"></ec-canvas>
+    </view> -->
+    <!-- <view class="clear"></view>
+
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/4.png" mode="widthFix" />
+        <span>设备实时状态列表</span>
+    </view>
+
+    <view class="tb">
+        <view class="tb_t">
+            <span>设备名称</span>
+             <span>设备编号</span>
+              <span>地点</span>
+            <span>状态</span>
+        </view>
+        <view class="tb_f">
+            <p><span>设备1</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备2</span><span>ZM001</span><span>一号楼</span><span class="red">异常</span></p>
+            <p><span>设备3</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备4</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备5</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备6</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备7</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备8</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备9</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+            <p><span>设备10</span><span>ZM001</span><span>一号楼</span><span>正常</span></p>
+        </view>
+    </view> -->
+</view>
+<danger-btn />

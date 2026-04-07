@@ -1,0 +1,51 @@
+<view class="top">
+  <view class="topbox" bindtap="nav1">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/task.png" class="tr" mode="widthFix" />
+    <view class="tl">{{name}}</view>
+  </view>
+</view>
+<view class="no" wx:if="{{no}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img no_img2" mode="widthFix" />
+  <p>暂无数据</p>
+</view>
+<block wx:else>
+  <view class="xx">
+    <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+      <!-- class="{{item.state==1?'box ':'box active'}}" -->
+      <view class="box active" bindtap="toform" data-taskId="{{taskId}}" data-pointId="{{item.pointId?item.pointId:''}}">
+        <span>{{index+1}}</span>
+        <p>
+          {{item.pointName?item.pointName:''}}
+          <em wx:if="{{item.state==0}}" style="float:right;color:#1568EA">未巡查</em>
+          <em wx:if="{{item.state==1}}" style="float:right;color:green">正常</em>
+          <em wx:if="{{item.state==2}}" style="float:right;color:red">异常</em>
+        </p>
+        <!-- <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/r.png" class="boxr" mode="widthFix"/> -->
+      </view>
+    </block>
+  </view>
+</block>
+<view class="bthr"></view>
+
+<view wx:if="{{showTransferDialog}}" class="transfer-mask">
+  <view class="transfer-dialog">
+    <view class="transfer-title">选择接单人员</view>
+    <input class="xlki" placeholder="请输入姓名" bindinput="onUserInput" value="{{userInput}}" bindfocus="onUserFocus" bindblur="onUserBlur" confirm-type="done" style="border-bottom:1px solid #eee; padding:20rpx 0;" />
+    <view wx:if="{{showUserSuggest && filteredUserList.length > 0}}" style="position:absolute;top:210rpx;left:0;right:0;z-index:99;background:#fff;border:0px solid #eee;border-radius:20rpx; max-height:600rpx; overflow:auto;box-sizing:border-box; padding:10rpx 0 50rpx">
+      <view wx:for="{{filteredUserList}}" wx:key="userId" class="picker pickera" style="padding:10rpx 30rpx;box-sizing:border-box;" bindtap="onUserSelect" data-index="{{index}}">
+        {{item.nickName}}
+      </view>
+    </view>
+    <view class="transfer-btns">
+      <button class="bt bt1" bindtap="confirmTransfer">确定</button>
+      <button class="bt bt2" style="background:#eee;color:#333;" bindtap="closeTransferDialog">取消</button>
+    </view>
+  </view>
+</view>
+
+<view class="" style="margin:0 0 50rpx;float:left" wx:if="{{!no && result!=3}}">
+  <view class="bt bt1" wx:if="{{zt==1}}" bindtap='openTransferDialog'>转单</view>
+  <view class="bt bt2" wx:if="{{zt==1}}" bindtap='scanCode'>扫码填写巡检单</view>
+</view>
+<view class="bthr"></view>
+<danger-btn />

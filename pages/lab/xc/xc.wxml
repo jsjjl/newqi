@@ -1,0 +1,84 @@
+<view class="title">
+  <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/img.png" mode="widthFix" />
+  <p>未整改前照片</p>
+</view>
+<view class="tp">
+  <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+    <view class="tpt">
+      <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+      <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+    </view>
+  </block>
+  <view class="tpadd" bindtap="addimg">
+    <p>+</p>
+    <span>添加照片</span>
+  </view>
+</view>
+<view class="bz">
+  <p>未整改前备注</p>
+  <textarea bindblur="bindTextAreaBlur" class="bzb" placeholder="请输入" />
+</view>
+<view class="title">
+  <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/img.png" mode="widthFix" />
+  <p>整改后照片</p>
+</view>
+<view class="tp">
+  <block wx:for='{{img_arr2}}' wx:key='index' wx:for-item='item'>
+    <view class="tpt">
+      <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg2" bindlongpress="deleteImg2" name="headimage"></image>
+      <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg2" data-id="{{item}}" mode="aspectFill"></image>
+    </view>
+  </block>
+  <view class="tpadd" bindtap="addimg2">
+    <p>+</p>
+    <span>添加照片</span>
+  </view>
+</view>
+<view class="bz">
+  <p>整改后备注</p>
+  <textarea bindblur="bindTextAreaBlur2" class="bzb" placeholder="请输入" />
+</view>
+<!-- <view class="title">
+    <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/so.png" mode="widthFix" />
+    <p>录音</p>
+</view>
+
+<view class="ly">
+<view class="editWrapBox">
+
+
+  <block wx:if="{{noRecordShow}}">
+
+    <view class="ks" bindtap="authorize"><p>点击开始录音</p><i></i></view>
+  </block>
+  
+
+  <block wx:if="{{recordLuzhiShow}}">
+    <view class="ks" bindtap="stopRecordAudio"><p>录音中（已录制<text class="numberSize">{{countNume}}s</text>），再次点击按钮即可停止录制</p><i
+    class="iconfont icon-maikefenghuatongyuyin icon"></i></view>
+  </block>
+
+  <view wx:if="{{playAudioShow}}">
+
+ <view class="bft"><p >播放中</p><image class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image></view>
+
+
+  </view>
+
+
+  <block wx:if="{{finishRecordShow}}">
+
+    <view class="bft"><p bindtap="playRecordAudio" data-type="1">点击播放</p><image bindtap="playRecordAudio" data-type="1" class="bfti" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/yy2.png" mode="aspectFill"></image><image class="bftd" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" mode="aspectFill"  bindtap="recycleRecordAudio"></image></view>
+
+
+
+  </block>
+
+
+</view>
+
+    
+</view> -->
+<view class="bthr"></view>
+<view class="bt" bindtap="save" data-id="1">提交</view>
+<danger-btn />

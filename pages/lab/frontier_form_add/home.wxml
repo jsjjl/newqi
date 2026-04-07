@@ -1,0 +1,29 @@
+
+<block >
+    <view class="form_box ">
+        <p>处理信息</p>
+         <textarea bindblur="bindTextAreaBlur" class="bzbx" placeholder="请输入" />
+    </view>
+    
+</block>
+<view class="form_box form_box_img">
+    <p>
+        处理图片
+        <span>请上传图片保持清晰</span>
+    </p>
+    <view class="tpx">
+        <view class="tpadd" bindtap="addimg">
+            <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/img.png" mode="widthFix" />
+        </view>
+        <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+            <view class="tpt">
+                <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+                <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="bthrr"></view>
+<view class="bt" bindtap="save">提交</view>
+<danger-btn />

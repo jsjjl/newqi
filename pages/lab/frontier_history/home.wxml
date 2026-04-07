@@ -1,0 +1,26 @@
+<view class="page">
+    <view class="xy_postbox moreImg djg{{index}}" bindtap="go" data-id="{{item.url}}" wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t hr_f">
+            <p>王斌</p>
+            <span class="a">2024-05-02 14:51</span>
+        </view>
+        <view class="xy_postbox_t">
+            <p>烟感01</p>
+            <span class="g">正常</span>
+        </view>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" class="xy_postbox_img" />
+        <view class="xy_postbox_f">
+            <p>
+                <span>备注信息</span>
+            </p>
+            <i class="h">这里是备注信息，可以多行展示</i>
+        </view>
+    </view>
+                <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+
+    <!--<view class="noMor" wx:if="{{noMor}}">加载完成</view>-->
+</view>
+<danger-btn />

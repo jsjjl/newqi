@@ -1,0 +1,114 @@
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/wx.svg" style="zoom:.8;margin:0 20rpx 0 0" />
+    <p>维修信息</p>
+  </view>
+<!-- <view class="top">
+  <text>维修状态</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{statusOptions}}" range-key="label" value="{{statusIndex}}" bindchange="onStatusChange">
+    <view class="{{statusIndex !== null ?'picker pickera':'picker'}}">
+      {{statusIndex !== null ? statusOptions[statusIndex].label : '请选择维修状态'}}
+    </view>
+  </picker>
+</view> -->
+<view class="top">
+  <text>维修日期</text>
+</view>
+<view class="xlk">
+  <picker mode="date" value="{{detailDate}}" bindchange="onDateChange">
+    <view class="{{detailDate ?'picker pickera':'picker'}}">{{detailDate || '请选择日期'}}</view>
+  </picker>
+</view>
+<view class="top">
+  <text>维修内容</text>
+</view>
+
+
+   <view class="xlk" style="width: 100%; height: 200rpx; line-height:30rpx;">
+  <textarea class="xlki" placeholder="请输入" bindinput="onContentInput" value="{{content}}" style="width: 97%; height: 200rpx;line-height:30rpx;" />
+
+  <!-- <input class="xlki" type="text" placeholder="请输入" bindinput="onContentInput" value="{{content}}" /> -->
+</view>
+</view>
+<!-- <view class="top">
+  <text>图片</text>
+</view>
+<view class="xlk">
+  <button type="default" size="mini" bindtap="chooseImage">选择图片</button>
+  <view class="img-list">
+    <image wx:for="{{img_arr}}" wx:key="index" src="{{item}}" mode="aspectFill" style="width:80rpx;height:80rpx;margin:5rpx;" />
+  </view>
+</view> -->
+
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/pz.svg" />
+    <p>图片</p>
+  </view>
+<!-- <view class="title">
+  <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/img.png" mode="widthFix" />
+  <p>图片</p>
+</view> -->
+<view class="tp">
+  <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+    <view class="tpt">
+      <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+      <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+    </view>
+  </block>
+  <view class="tpadd" bindtap="chooseImage">
+    <p>+</p>
+    <span>添加照片</span>
+  </view>
+</view>
+</view>
+<!-- <view class="top">
+  <text>视频</text>
+</view>
+<view class="xlk">
+  <button type="default" size="mini" bindtap="chooseVideo">选择视频</button>
+  <view wx:if="{{video}}">
+    <video src="{{video}}" controls style="width:200rpx;height:120rpx;" />
+  </view>
+</view> -->
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/pz.svg" />
+    <p>视频</p>
+  </view>
+<!-- <view class="title">
+  <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/img.png" mode="widthFix" />
+  <p>视频</p>
+</view> -->
+<view class="tp">
+  <block wx:if="{{video}}">
+    <view class="tpt" style="width:200rpx;height:150rpx; margin:0 10rpx 0 0">
+      <video src="{{video}}" controls style="width:200rpx;height:150rpx; margin:0 0rpx 0 0" />
+      <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteVideo" data-id="{{item}}" mode="aspectFill"></image>
+    </view>
+  </block>
+  <view class="tpadd" bindtap="chooseVideo">
+    <p>+</p>
+    <span>添加视频</span>
+  </view>
+</view>
+</view>
+
+
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/bz.svg" />
+    <p>备注</p>
+  </view>
+<!-- <view class="top">
+  <text>备注</text>
+</view> -->
+
+  <view class="xlk" style="width: 100%; height: 200rpx; line-height:30rpx;">
+  <textarea class="xlki" placeholder="请输入" bindinput="onRemarkInput" value="{{remark}}" style="width: 97%; height: 200rpx;line-height:30rpx;" />
+  <!-- <input class="xlki" type="text" placeholder="请输入备注" bindinput="onRemarkInput" value="{{remark}}" /> -->
+</view></view>
+<view class="bt" bindtap="onDetailSubmit">提交</view>
+<danger-btn />

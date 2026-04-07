@@ -1,0 +1,28 @@
+<view class="page">
+    <view class="xy_l">
+        <view class="{{item.id==id?'span active':'span'}}" wx:for="{{ tag }}" wx:key="index" bindtap="select" data-id="{{item.id}}">
+            <view class="bjt"></view>
+            {{item.dirName}}
+            <view class="bjf"></view>
+        </view>
+    </view>
+    <view class="xy_r">
+        <view class="xy_postbox djg{{index}}" wx:for="{{ list }}" wx:key="index">
+            <image src="{{item.url}}" bindtap="viewImage" data-id="{{item.url}}"  class="xy_postbox_rimg"></image>
+            <view class="xy_postbox_rbox" bindtap="go" data-id="/pages/lab/service/detail?id={{item.id}}">
+                <view class="xy_postbox_t">
+                    <view class="xy_postbox_t1">{{item.fileName?item.fileName:''}}</view>
+                    <view class="xy_postbox_t2"><image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>{{item.createTime}}</view>
+                </view>
+            </view>
+        </view>
+
+                    <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+
+        <!--<view class="noMor" wx:if="{{noMor}}">加载完成</view>-->
+    </view>
+</view>
+<danger-btn />

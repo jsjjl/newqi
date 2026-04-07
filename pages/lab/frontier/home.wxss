@@ -1,0 +1,155 @@
+
+page {
+  overflow: auto;
+}
+
+.boxs {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  position: relative;
+  z-index: 3;
+  overflow: auto;
+}
+
+
+.bj {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.box {
+  width: 750rpx;
+  height: auto;
+
+  margin: 150rpx 0 0 0;
+  display: block;
+  float: left;
+  position: relative;
+  z-index: 2;
+}
+
+.boxl {
+  width: 724rpx;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 0rpx 0rpx 0 13rpx;
+}
+
+.top {
+  width: 100%;
+  height: 270rpx;
+  display: block;
+  float: left;
+  background: #1568EA;
+  position: relative;
+  z-index: 1;
+}
+
+.topbox {
+  width: 649rpx;
+  height: 96rpx;
+  background: #E8F2FE;
+  border-radius: 10rpx;
+  margin: 35rpx 0 0 50rpx;
+  display: block;
+  float: left;
+}
+
+.tl {
+  width: 500rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 30rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #010101;
+  display: block;
+  float: left;
+  margin: 0 0 0 34rpx;
+}
+
+.tr {
+  width: 39rpx;
+  height: auto;
+  display: block;
+  float: right;
+  margin: 30rpx 37rpx 0 0;
+}
+
+
+
+
+
+.boxr {
+  width: 23rpx;
+  height: auto;
+  display: block;
+  float: right;
+  margin: 70rpx 57rpx 0 0;
+}
+
+.box p {
+  width: 400rpx;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 40rpx 0 0 0;
+}
+
+.box p span {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 0 0 0 0;
+  font-size: 36rpx;
+
+  font-weight: 400;
+  color: #000000;
+}
+
+.box p em {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 10rpx 0 0 0;
+  font-size: 24rpx;
+
+  font-weight: 400;
+  color: #3C3C3C;
+  opacity: 0.6;
+}
+
+.box i {
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 50rpx;
+  background: red;
+  color: #fff;
+  text-align: center;
+  font-size: 25rpx;
+  position: absolute;
+  top: 30rpx;
+  left: 100rpx;
+  z-index: 2;
+}
+
+.boxtc {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 30rpx 0 150rpx;
+  color: rgb(252, 74, 74);
+  font-weight: bold;
+  font-size: 30rpx;
+  text-align: center;
+}

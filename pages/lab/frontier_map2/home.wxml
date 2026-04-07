@@ -1,0 +1,24 @@
+<view class="page">
+    <view class="xy_postbox djg{{index}}" bindtap="go" data-id="{{item.url}}" wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t">
+            <p>点位{{index+1}}  {{item.pointSn}}</p>
+        </view>
+        <view class="xy_postbox_f">
+            <p>
+                <!-- <span>{{item.pointPlace}}</span> -->
+                 <span>{{item.pointName}}</span>
+                
+            </p>
+            <em class="a" >
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>
+                {{item.createTime}}
+            </em>
+        </view>
+    </view>
+    <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+    <!-- <view class="noMor" wx:if="{{noMor}}">加载完成</view> -->
+</view>
+<danger-btn />

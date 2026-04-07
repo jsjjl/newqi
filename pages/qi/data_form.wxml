@@ -1,0 +1,188 @@
+<view class="{{tc?'itc':''}}">
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/sb.svg" />
+    <p>借用信息</p>
+  </view>
+
+<!-- 
+  <view class="title">
+    <text>气体借用申请</text>
+  </view> -->
+<view class="top">
+  <text>院区</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{areaList}}" range-key="name" value="{{selectedAreaId}}" bindchange="onAreaChange">
+    <view class="{{selectedAreaId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedAreaId !== '' ? areaList[selectedAreaId].name : '请选择'}}
+    </view>
+  </picker>
+</view>
+
+<view class="top">
+  <text>病区</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{wardList}}" range-key="name" value="{{selectedWardId}}" bindchange="onWardChange">
+    <view class="{{selectedWardId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedWardId !== '' ? wardList[selectedWardId].name : '请选择'}}
+    </view>
+  </picker>
+</view>
+
+<view class="top">
+  <text>借用人</text>
+</view>
+<view class="xlk" style="position:relative;">
+  <input
+    class="xlki"
+    placeholder="请输入借用人姓名"
+    bindinput="onUserInput"
+    value="{{userInput}}"
+    bindfocus="onUserFocus"
+    bindblur="onUserBlur"
+    confirm-type="done"
+  />
+  <!-- 下拉建议列表 -->
+  <view wx:if="{{showUserSuggest && filteredUserList.length > 0}}" style="position:absolute;top:80rpx;left:0;right:0;z-index:99;background:#fff;border:1px solid #eee;border-radius:20rpx; max-height:400rpx; overflow:auto;box-sizing:border-box;">
+    <view wx:for="{{filteredUserList}}" wx:key="userId" class="picker pickera" style="padding:0 30rpx;box-sizing:border-box;" bindtap="onUserSelect" data-index="{{index}}">
+      {{item.nickName}}
+    </view>
+  </view>
+</view>
+<!-- <view class="xlk">
+  <picker mode="selector" range="{{userList}}" range-key="nickName" value="{{selectedUserId}}" bindchange="onUserChange">
+    <view class="{{selectedUserId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedUserId !== '' ? userList[selectedUserId].nickName : '请选择'}}
+    </view>
+  </picker>
+</view> -->
+
+<view class="top">
+  <text>借用时间</text>
+</view>
+<view class="xlk">
+  <picker mode="date" value="{{borrowTime}}" bindchange="onBorrowTimeChange">
+    <view class="{{borrowTime ? 'picker pickera' : 'picker'}}" style="width:200rpx;">
+      {{borrowTime || '请选择日期'}}
+    </view>
+  </picker>
+  <picker mode="time" value="{{borrowTime2}}" bindchange="onBorrowTimeChange2">
+    <view class="{{borrowTime2 ? 'picker pickera' : 'picker'}}" style="width:400rpx;">
+      {{borrowTime2 || '请选择时间'}}
+    </view>
+  </picker>
+</view>
+
+
+<view class="top">
+  <text>用途说明</text>
+</view>
+<view class="xlk">
+
+  <input class="xlki" type="text" placeholder="请输入" bindinput="onPurposeInput" value="{{purpose}}" />
+
+</view>
+
+</view>
+
+
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/yqp.svg" />
+    <p>气体信息</p>
+  </view>
+
+<view class="top">
+  <text>气体类型</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{gasTypeList}}" range-key="dictLabel" value="{{selectedGasTypeId}}" bindchange="onGasTypeChange">
+    <view class="{{selectedGasTypeId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedGasTypeId !== '' ? gasTypeList[selectedGasTypeId].dictLabel : '请选择'}}
+    </view>
+  </picker>
+</view>
+<view class="top">
+  <text>气体规格</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{gasSpecList}}" range-key="bottleSpecLabel" value="{{selectedGasSpecId}}" bindchange="onGasSpecChange">
+    <view class="{{selectedGasSpecId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedGasSpecId !== '' ? gasSpecList[selectedGasSpecId].bottleSpecLabel : '请选择'}}
+    </view>
+  </picker>
+</view>
+<view class="top">
+  <text>借用数量</text>
+</view>
+<view class="xlk">
+  <input class="xlki" type="number" placeholder="请输入" bindinput="onQuantityInput" value="{{quantity}}" />
+</view>
+</view>
+
+<!-- <view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/gg.svg" />
+    <p>气体规格</p>
+  </view>
+
+<view class="xlk">
+  <picker mode="selector" range="{{gasSpecList}}" range-key="bottleSpecLabel" value="{{selectedGasSpecId}}" bindchange="onGasSpecChange">
+    <view class="{{selectedGasSpecId !== '' ? 'picker pickera' : 'picker'}}">
+      {{selectedGasSpecId !== '' ? gasSpecList[selectedGasSpecId].bottleSpecLabel : '请选择'}}
+    </view>
+  </picker>
+</view>
+
+
+<view class="top">
+  <text>借用数量</text>
+</view>
+<view class="xlk">
+  <input class="xlki" type="number" placeholder="请输入" bindinput="onQuantityInput" value="{{quantity}}" />
+</view>
+</view> -->
+
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/qz.svg" />
+    <p>借用确认单</p>
+  </view>
+<!-- <view class="title">
+  <p>签名图片</p>
+</view> -->
+<view class="tp" style="float: left;dispaly:block">
+
+ <image wx:if="{{lstp}}" src="{{lstp}}" mode="aspectFill" data-index="0" data-pictures="{{lstp}}" bindtap="previewImg" style="width:220rpx;height:220rpx;float:none;margin:0 0 20rpx; dispaly:block" name="headimage"></image>
+     
+
+  <view class="qm" bindtap="showt">{{lstp?'重新签名':'点击签名'}}</view>
+  
+</view>
+</view>
+<view class="tcc" wx:if="{{tc}}">
+<view class="container">
+  <!-- Canvas 绘图区域 -->
+   <view class="tcbt">请在以下空白处签字</view>
+  <canvas 
+    type="2d" 
+    id="signatureCanvas" 
+    style="width: 100%; height: 1100rpx; border: 1px solid #ccc; background: #fff;"
+    bindtouchstart="touchStart"
+    bindtouchmove="touchMove"
+    bindtouchend="touchEnd"
+  ></canvas>
+
+  <!-- 操作按钮 -->
+  <view class="button-group" >
+    <view class="button-group-bt button-group-bt1" bindtap="clearCanvas">清除</view>
+    <view class="button-group-bt button-group-bt2" bindtap="saveSignature">保存签名</view>
+    <view  class="button-group-bt button-group-bt3" bindtap="closet">关闭</view>
+  </view>
+</view>
+</view>
+
+<view class="bt" bindtap="onSubmit">提交</view>
+</view>

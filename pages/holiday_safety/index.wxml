@@ -1,0 +1,29 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="loading-state">加载中...</view>
+  
+  <!-- 有任务时显示 -->
+  <view wx:elif="{{tasks.length > 0}}" class="task-list">
+    <view class="task-card" wx:for="{{tasks}}" wx:key="id">
+      <view class="task-header">
+        <text class="task-title">{{item.taskName}}</text>
+        <text class="task-status {{item.status == 0 ? 'status-pending' : 'status-done'}}">{{item.status == 0 ? '待填报' : '已填报'}}</text>
+      </view>
+      <view class="task-body">
+        <view class="info-row"><text class="label">任务时间：</text><text class="value">{{item.actionDate}}</text></view>
+        <view class="info-row"><text class="label">任务要求：</text><text class="value">{{item.requirement || '按照统一要求进行重大活动/节假日专项安全排查'}}</text></view>
+      </view>
+      <view class="task-footer">
+        <button class="btn-primary" wx:if="{{item.status == 0}}" bindtap="goToForm" data-id="{{item.id}}" data-name="{{item.taskName}}">去填报报表</button>
+        <button class="btn-default" wx:else bindtap="viewDetail" data-id="{{item.id}}">查看已填报</button>
+      </view>
+    </view>
+  </view>
+
+  <!-- 无任务时显示 -->
+  <view wx:else class="empty-state">
+    <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" mode="widthFix" class="empty-img"></image>
+    <text class="empty-text">当前无重大活动/节假日安全上报任务</text>
+    <text class="empty-subtext">（非任务期间，或您不在科主任、护士长名单中）</text>
+  </view>
+</view>
+<danger-btn />

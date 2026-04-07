@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#1677ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "氧气储蓄罐",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

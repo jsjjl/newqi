@@ -1,0 +1,124 @@
+<view class="main">
+    <view class="title"><image src="../../images/icon/ba1.svg" mode="widthFix" class="baimg" />资产管理</view>
+    <view class="boxs">
+        <view class="box" bindtap="go" data-id="/pages/sebei/home" >
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s1_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">设备信息查询</view>
+        </view>
+       
+         <view class="box" bindtap="go" data-id="/pages/sebei/detail">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">设备扫码</view>
+        </view>
+       
+        
+           <view class="box" bindtap="go" data-id="/pages/sebei/list_weixiu">
+            <view class="box_t" style="background:#f7eed9;">
+                <image src="../../images/icon/wxjl.svg"  mode="widthFix" class="box_img" />
+   
+            </view>
+            <view class="box-title">维修记录</view>
+        </view>
+        <view class="box" bindtap="go" data-id="/pages/sebei/list_baoyang">
+            <view class="box_t" style="background:rgb(250, 218, 236);">
+                <image src="../../images/icon/byjl.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">保养记录</view>
+        </view>
+
+        <view class="box" bindtap="go"  data-sm="1"  data-id="/pages/sebei/weixiu">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">维修扫码</view>
+        </view>
+          <view class="box" bindtap="go" data-sm="1" data-id="/pages/sebei/baoyang">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">保养扫码</view>
+        </view>
+
+        <!-- <view class="box" bindtap="go" data-id="/pages/sebei/weixiu">
+            <view class="box_t" style="background: #ede9fe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s1_2.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">新增维修记录</view>
+        </view>
+        <view class="box" bindtap="go" data-id="/pages/sebei/baoyang">
+            <view class="box_t" style="background: #fee2e2;">
+                <image src="../../images/icon/by.svg"mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">新增保养记录</view>
+        </view> -->
+    </view>
+
+
+    <!-- <view class="title"><image src="../../images/icon/ba2.svg" mode="widthFix" class="baimg2" />气体借用</view>
+    <view class="boxs">
+        <view class="box" bindtap="go" data-id="/pages/qi/data_form">
+            <view class="box_t" style="background: #d1fae5;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s2_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">新增借用记录</view>
+        </view>
+        <view class="box" bindtap="go" data-id="/pages/qi/home">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s2_2.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">借用记录</view>
+        </view>
+    </view> -->
+    <view class="title"><image src="../../images/icon/ba3.svg" mode="widthFix" class="baimg3" />巡检管理</view>
+    <view class="boxs">
+        <view class="box" bindtap="go" data-id="/pages/lab/frontier_form/home">
+            <view class="box_t" style="background: #dbeafe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">扫码巡检</view>
+        </view>
+        <view class="box" bindtap="go" data-id="/pages/lab/frontier_task/home">
+            <view class="box_t" style="background: #d1fae5;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_2.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">巡检任务</view>
+        </view>
+        <view class="box" bindtap="go" data-id="/pages/lab/task_search/task_search">
+            <view class="box_t" style="background: #ede9fe;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_3.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">巡检记录</view>
+        </view>
+
+        <view class="box"  bindtap="go" data-id="/pages/data_form/data_form">
+            <view class="box_t" style="background: #fee2e2;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s3_4.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">隐患上报</view>
+        </view>
+    </view>
+  
+    <view class="title"><image src="../../images/icon/ba4.svg" mode="widthFix" class="baimg4" />每日任务</view>
+    <view class="boxs">
+        <view class="box"  bindtap="go" data-id="/pages/lab/frontier_task2/home">
+            <view class="box_t" style="background: #fef3c7;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/s5_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">每日巡检任务</view>
+        </view>
+    </view>
+
+      <view class="title"><image src="../../images/icon/ba5.svg" mode="widthFix" class="baimg3" />通知消息</view>
+    <view class="boxs">
+        <view class="box" bindtap="go" data-id="/pages/msg_list/msg_list">
+            <view class="box_t" style="background: #fee2e2;">
+                <image src="https://wechat.ssgdwisdom.com:7700/wximg/images/new/s4_1.svg" mode="widthFix" class="box_img" />
+            </view>
+            <view class="box-title">通知消息</view>
+        </view>
+    </view>
+</view>

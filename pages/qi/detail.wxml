@@ -1,0 +1,62 @@
+<div class="p-4">
+  <div class="bg-white rounded-lg shadow-sm p-4 mb-4">
+    <div class="flex justify-between items-start mb-3">
+      <div style="width: 70%;float: left; margin:0 0 30rpx">
+        <h2 class="text-lg font-medium" style="width: 100%;float: left;">
+          {{detail.gasTypeName?detail.gasTypeName:'-'}}
+        </h2>
+        <p class="text-sm text-gray-500 mt-1" style="width: 100%;float: left;overflow-wrap: break-word;">
+          用途说明: {{detail.purpose?detail.purpose:'-'}}
+        </p>
+      </div>
+      <span class="px-2 py-1 bg-green-100 text-green-600 rounded-full text-xs" style="width:30%;text-align: right;margin:10px 0 0 0">
+        <view class="picker pickera">
+          {{detail.gasSpecName?detail.gasSpecName:'-'}} x {{detail.quantity}} 瓶
+        </view>
+      </span>
+    </div>
+   
+    <div class="grid grid-cols-2 gap-3 text-sm " style="border-top: 5px solid rgb(239, 240, 241); padding-top: 30rpx;">
+      <div class="flex items-center">
+        <image src="../../images/xx/2.svg" class="icon" />
+        <div>
+          <div class="text-gray-500 text-xs">借用人</div>
+          <div>{{detail.borrowerName?detail.borrowerName:'-'}}</div>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <image src="../../images/xx/3.svg" class="icon" />
+        <div>
+          <div class="text-gray-500 text-xs">借用时间</div>
+          <div>{{detail.borrowTime}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-sm ds">
+      <div class="flex items-center">
+        <image src="../../images/xx/yq.svg" class="icon" />
+        <div>
+          <div class="text-gray-500 text-xs">院区</div>
+          <div>{{detail.areaName?detail.areaName:'-'}}</div>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <image src="../../images/xx/jz.svg" class="icon" />
+        <div>
+          <div class="text-gray-500 text-xs">病区</div>
+          <div>{{detail.wardName?detail.wardName:'-'}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-3 text-sm ds"></div>
+    <div class="flex items-center" style="width: 100%;margin:20rpx 0;display: block;float: left; position: relative; min-height:250rpx" wx:if="{{detail.signImgUrl}}">
+      <image src="../../images/xx/bz.svg" class="icon" style="display:block;float:left;position:absolute; top:30rpx;left:0" />
+      <view style="width:580rpx;display:block;float:left;position:absolute; top:0;left:49rpx">
+        <div class="text-gray-500 text-xs">签字确认图</div>
+        <div style="font-size:25rpx">
+          <image class="tptimg" src="{{detail.signImgUrl}}" mode="aspectFill" data-index="0" data-pictures="{{detail.signImgUrl}}" bindtap="previewImg" style="width:220rpx;height:220rpx;float:left;margin:20rpx 0 0 0;" name="headimage"></image>
+        </div>
+      </view>
+    </div>
+  </div>
+</div>

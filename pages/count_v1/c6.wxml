@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+
+
+    <!-- <view class="bj"></view> -->   
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/06.png" mode="widthFix" />
+        <span>区域报警箱告警次数统计图</span>
+    </view>
+    <ec-canvas  wx:if="{{ec5show}}"  class="ec-canvas6" ec="{{ ec6 }}"></ec-canvas>
+</view>
+<danger-btn />

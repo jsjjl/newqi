@@ -1,0 +1,22 @@
+<!-- filepath: f:\e\qi\pages\give_v1\g1.wxml -->
+<view class="top">
+  <view class="boxs">
+    <view class="title">
+      <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/1.png" mode="widthFix" />
+      <span>实时告警设备数量分类占比</span>
+      <view class="tl">
+        <p><i style="background: #C1EBDD;"></i><span>正常</span></p>
+        <p><i style="background: #FFC851;"></i><span>告警</span></p>
+      </view>
+    </view>
+    <view class="boxs_f" wx:if="{{deviceList.length > 0}}">
+      <block wx:for="{{deviceList}}" wx:key="name">
+        <p>
+          <ec-canvas class="ec-canvas2" ec="{{ ecList[index] }}"></ec-canvas>
+          <em>{{ item.displayName }}</em>
+        </p>
+      </block>
+    </view>
+  </view>
+</view>
+<danger-btn />

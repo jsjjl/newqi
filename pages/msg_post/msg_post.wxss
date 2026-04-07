@@ -1,0 +1,10 @@
+
+page {
+  background: var(--bg-color, #f5f6f8);
+}
+.box {
+  /* Layout managed inline */
+}
+.box rich-text {
+  word-break: break-all;
+}

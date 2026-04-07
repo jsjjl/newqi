@@ -1,0 +1,49 @@
+.title{ width: 100%; height: auto; display: block; float: left; margin: 20rpx 0 10rpx; padding:0 30rpx; box-sizing: border-box;}
+.title image{ width: 55rpx; height: 55rpx; display: block; float: left; margin: 0 20rpx 0 0;}
+.title  span{ width: auto; height: auto; display: block; float: left; line-height: 55rpx; font-size: 27rpx; color: #2f2f2f;}
+
+.ant{ width: 90%; height: auto; display: block; float: left; margin: 20rpx 5% 20rpx; padding: 20rpx 30rpx; box-sizing: border-box;border: 1px solid #1677ff; border-radius: 20rpx;}
+.antl{ width: 60rpx; height: 60rpx; display: block; float: left; margin: 10rpx 0 0 0;}
+.ant span{ width: auto; height: 80rpx; line-height: 80rpx; margin: 0 0 0 20rpx; display: block; float: left;}
+.antr{ width: 50rpx; height: 50rpx; display: block; float: right; margin: 15rpx 0rpx 0 0; opacity: .5;}
+
+.boxs{ width:680rpx; height: auto; display: block; float: left;  border-radius: 30rpx;
+    /* background-image: -moz-linear-gradient( -1deg, rgb(177,239,192) 0%, rgb(1,197,134) 100%);
+    background-image: -webkit-linear-gradient( -1deg, rgb(177,239,192) 0%, rgb(1,197,134) 100%);
+    background-image: -ms-linear-gradient( -1deg, rgb(177,239,192) 0%, rgb(1,197,134) 100%); */
+    background: #1677ff;
+    box-shadow: 0px 12rpx 18rpx 2rpx rgba(22, 119, 255, 0.25);
+    margin: 30rpx 35rpx;
+    padding-bottom: 20rpx;
+}
+.boxs .title span{ color: #fff;}
+.boxs_f{ width: 100%;  height: 100%; display: block; float: left; color: #fff; }
+.boxs_f p{ width:50%; height: auto; display: block; float: left; text-align: center; margin: 30rpx 0 30rpx; padding: 0 10rpx; border-right: 1px solid rgba(255, 255, 255, 0.5); box-sizing: border-box; }
+.boxs_f p:nth-child(2n){border: 0;}
+.boxs_f p span{ width: 100%; height: auto; display: block; float: left; text-align: center;  font-size: 50rpx; }
+.boxs_f p em{ width: 100%; height: auto; display: block; float: left; text-align: center;  font-size: 25rpx; font-style: normal;}
+
+.fboxs{  width:690rpx; height: auto; display: block; float: left;margin: 0rpx 30rpx 30rpx;}
+
+.fbox{ background: #fff;box-sizing: border-box; border-radius: 10rpx;  width:100%; height: auto; display: block; float: left;margin: 0 0 25rpx; padding: 15rpx 15px 15rpx;    box-shadow: 0px 12rpx 18rpx 2rpx rgba(0, 0, 0, 0.05); }
+
+.fbox p{ width:100%; height: auto; display: block; float: left; margin: 10rpx 0 5rpx;}
+.fbox  span{ width: 30%; height:  auto; display: block; float: left; font-size: 27rpx; color: #2f2f2f;}
+.fbox   em{font-style: normal; width: 65%; height:  auto; display: block; float: right; text-align: right; font-size: 27rpx; color: #2f2f2f;}
+
+.tl{width:auto; height: auto; display: block; float: right;}
+.tl p{width:auto; height: auto; display: block; float: right;}
+.tl p i{ width: 20rpx; height: 20rpx; display: inline-block; border-radius: 20rpx; background: #1677ff; margin: 20rpx 10rpx 0 20rpx; float: left;}
+
+
+.ec-canvas2 {
+    width:90%;
+    height:200rpx;
+    display: block;
+    float: left;
+     margin: 30rpx 5%;
+  }
+
+  .ss{ width: 690rpx; margin: 10rpx 30rpx 40rpx; height: auto; display: block; float: left; border-radius: 100rpx; border: 1px solid #ccc; padding: 10rpx 20rpx; box-sizing: border-box; background: #fff;}
+.ss image{ width: 30rpx; height: 30rpx; display: block; float: left; margin: 10rpx 20rpx 0 0;}
+.ssi{ width: 550rpx; height: 50rpx; display: block; float: left;}

@@ -1,0 +1,13 @@
+<view class="top">
+    <!-- <view class="bj"></view> -->    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/03/2.png" mode="widthFix" />
+        <span>近7天设备在线率图表</span>
+    </view>
+    <view class="ech" wx:if="{{ec1}}">
+        <ec-canvas class="ec-canvas1" ec="{{ ec1 }}" wx:if="{{ec1}}"></ec-canvas>
+    </view>
+    <view class="clear"></view>
+    
+
+</view>
+<danger-btn />

@@ -1,0 +1,91 @@
+<view class="page" style="padding-bottom: 40rpx;">
+<view class="editWrapBox">
+<view class="title topt">
+  <image src="../../images/icon/jbxx.svg" mode="widthFix" />
+  <p>保养信息</p>
+  <view wx:if="{{detail.status==0}}" class="modern-btn" style="width:150rpx; margin: -10rpx 0 0 0; float: right; height: 50rpx; line-height: 50rpx; font-size: 24rpx; padding: 0;" bindtap="wcmx">保养完成</view>
+</view>
+<view class="top">
+  <text>设备名称</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera">{{detail.deviceName}}</view>
+</view>
+<view class="top">
+  <text>保养状态</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera g{{detail.status}}">{{detail.status==0?'处理中':'已完成'}}</view>
+</view>
+<view class="top">
+  <text>保养类型</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera {{'g'+detail.maintenanceType}}">{{detail.maintenanceTypeName}}</view>
+</view>
+<view class="top">
+  <text>保养日期</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera">{{detail.maintainDate}}</view>
+</view>
+<view class="top">
+  <text>类型</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera">{{detail.type==1?'设备':'零部件'}}</view>
+</view>
+<view class="top" wx:if="{{detail.type==2}}">
+  <text>零部件名称</text>
+</view>
+<view class="xlk" wx:if="{{detail.type==2}}">
+  <view class="picker pickera">{{detail.partName?detail.partName:'-'}}</view>
+</view>
+<view class="top">
+  <text>保养人</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera">{{detail.operatorName}}</view>
+</view>
+<view class="top">
+  <text>联系方式</text>
+</view>
+<view class="xlk">
+  <view class="picker pickera">{{detail.contact}}</view>
+</view>
+<view class="top" wx:if="{{detail.remark}}">
+  <text>备注</text>
+</view>
+<view class="xlk" wx:if="{{detail.remark}}">
+  <view class="picker pickera">{{detail.remark}}</view>
+</view>
+</view>
+
+<view class="editWrapBox">
+<view class="title topt">
+  <image src="../../images/icon/jbxx.svg" mode="widthFix" />
+  <p>明细</p>
+  <view wx:if="{{detail.status==0}}" class="modern-btn" style="width:150rpx; margin: -10rpx 0 0 0; float: right; height: 50rpx; line-height: 50rpx; font-size: 24rpx; padding: 0;" bindtap="addmx">新增明细</view>
+</view>
+
+<view class="no" wx:if="{{filteredItems.length == 0}}">
+  <p style="margin:30rpx 0 30rpx; color: var(--text-muted); text-align: center;">暂无数据</p>
+</view>
+<view class="nboxs" wx:for="{{filteredItems}}" wx:key="index" data-detail="{{item}}" style="border-bottom: 1px solid var(--border-color); padding-bottom: 20rpx; margin-bottom: 20rpx;">
+  <view class="nbt" style="font-size: 30rpx; font-weight: 500; color: var(--text-main); margin-bottom: 10rpx;">{{item.content?item.content:'-'}}</view>
+  <view class="nbt2" style="font-size: 26rpx; color: var(--text-muted); margin-bottom: 10rpx;">{{item.detailDate?item.detailDate:'-'}}</view>
+  <view class="nbt3" wx:if="{{item.picturesUrl}}" style="margin-bottom: 10rpx;">图片：
+    <view class="aa" wx:if="{{item.picturesUrl}}" style="display: flex; flex-wrap: wrap; margin-top: 10rpx;">
+        <image class="tptimg" wx:for="{{item.picturesUrl}}" wx:for-item="img" wx:for-index="idx" src="{{img}}" mode="aspectFill" data-index="{{idx}}"  data-dq="{{img}}" data-pictures="{{item.picturesUrl}}" bindtap="previewImg" style="width:150rpx;height:150rpx;float:left;margin:0 20rpx 20rpx 0; border-radius: var(--border-radius-md);" name="headimage"></image>
+    </view>
+  </view>
+  <view class="nbt3" wx:if="{{item.videoUrl}}" style="margin-bottom: 10rpx;">视频：
+    <view class="aa" wx:if="{{item.videoUrl}}" style="margin-top: 10rpx;">
+        <video src="{{item.videoUrl}}" controls style="width:320rpx;height:400rpx; margin:0 0rpx 20rpx 0;float:left; border-radius: var(--border-radius-md);" />
+    </view>
+  </view>
+  <view class="nbt3" wx:if="{{item.remark}}" style="font-size: 28rpx; color: var(--text-sub);">备注：{{item.remark}}</view>
+</view>
+</view>
+</view>
+<danger-btn />

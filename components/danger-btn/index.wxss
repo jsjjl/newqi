@@ -1,0 +1,34 @@
+.float-danger-btn {
+  position: fixed;
+  right: 30rpx;
+  bottom: 220rpx;
+  width: 110rpx;
+  height: 110rpx;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  border: 2rpx solid #ffe4e6;
+  transition: all 0.2s;
+}
+
+.float-danger-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+.float-icon {
+  width: 44rpx;
+  height: 44rpx;
+  margin-bottom: 4rpx;
+}
+
+.float-text {
+  color: #ef4444;
+  font-size: 20rpx;
+  line-height: 1;
+}

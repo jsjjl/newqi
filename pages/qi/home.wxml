@@ -1,0 +1,90 @@
+<view class="page">
+    <!-- <view class="search">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+       
+        <picker mode="selector" range="{{userList}}" range-key="nickName" value="{{selectedUserIndex}}" bindchange="onUserChange">
+            <view class="picker pickerss">
+                {{selectedUserIndex !== null ? userList[selectedUserIndex].nickName : '选择借用人'}}
+            </view>
+        </picker>
+    </view> -->
+    <view class="search">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <picker mode="selector" range="{{gasTypeList}}" range-key="dictLabel" value="{{selectedGasTypeIndex}}" bindchange="onGasTypeChange">
+            <view class="picker pickerss">
+                {{selectedGasTypeIndex !== null ? gasTypeList[selectedGasTypeIndex].dictLabel : '选择气体类型'}}
+            </view>
+        </picker>
+    </view>
+    <view class="search">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <picker mode="selector" range="{{areaList}}" range-key="name" value="{{selectedAreaIndex}}" bindchange="onAreaChange">
+            <view class="picker pickerss">
+                {{selectedAreaIndex !== null ? areaList[selectedAreaIndex].name : '选择院区'}}
+            </view>
+        </picker>
+    </view>
+    <view class="search">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <picker mode="selector" range="{{wardList}}" range-key="name" value="{{selectedWardIndex}}" bindchange="onWardChange">
+            <view class="picker pickerss">
+                {{selectedWardIndex !== null ? wardList[selectedWardIndex].name : '选择病区'}}
+            </view>
+        </picker>
+    </view>
+   
+
+    <!-- 卡片列表 -->
+    <view wx:for="{{list}}" wx:key="index" class="card" bindtap="go" data-detail="{{item}}">
+        <view class="card-header">
+            <view class="card-title">{{item.areaName?item.areaName:''}}</view>
+            <view class="card-status {{getStatusClass(item.status)}}">
+                <span class="{{'g'+item.status}}">
+                {{item.gasSpecName}} x {{item.quantity}} 瓶
+            </span>
+            </view>
+        </view>
+        <view class="card-info">
+            <view>用途：{{item.purpose?item.purpose:'-'}}</view>
+            <view class="tbr">
+                <image src="../../images/t1.svg" class="icon" />{{item.wardName?item.wardName:''}}
+            </view>
+            <view class="tbr">
+                <image src="../../images/t2.svg" class="icon" />{{item.borrowerName}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t3.svg" class="icon" />{{item.borrowTime?item.borrowTime:''}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t4.svg" class="icon" />{{item.gasTypeName?item.gasTypeName:''}}
+            </view>
+        </view>
+    </view>
+
+
+    <!-- <view class="xy_postbox djg{{index}}" bindtap="go" data-detail="{{item}}" wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t">
+            <p>
+                <i>{{item.areaName?item.areaName:''}} {{item.wardName?item.wardName:''}}</i>
+            </p>
+            <span>{{item.borrowerName}}</span>
+        </view>
+        <view class="xy_postbox_f">
+            <p>
+                <span>{{item.gasTypeName?item.gasTypeName:''}}</span>
+                <span>{{item.gasSpecName?item.gasSpecName:''}}</span>
+                <span>{{item.quantity?item.quantity:''}}</span>
+              
+            </p>
+            <em class="a">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>
+                {{item.borrowTime?item.borrowTime:''}}
+            </em>
+        </view>
+    </view> -->
+    <view class="no" wx:if="{{noData}}">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" />
+        <p>暂无数据</p>
+    </view>
+    <!-- <view class="noMor" wx:if="{{noMor}}">加载完成</view> -->
+</view>

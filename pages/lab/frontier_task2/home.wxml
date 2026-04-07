@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="xy_postbox djg{{index}}" bindtap="go" data-id="{{item.id}}" data-name="{{item.name?item.name:''}}" wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t">
+            <p>{{item.name}}</p>
+            <span style="float: right;" class="{{item.result==1?'g':'r'}}">
+                {{item.result==0?'未巡查':''}}
+                {{item.result==1?'已巡查':''}}
+                {{item.result==2?'巡查中':''}}
+                {{item.result==3?'漏检':''}}
+                </span>
+        </view>
+        <view class="xy_postbox_f">
+            <p>
+                <!-- <span>{{item.description}}</span> -->
+                <span>{{item.cycle}}</span>
+            </p>
+            <em class="a">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>
+                {{item.endTime?item.endTime:item.startTime}}
+            </em>
+        </view>
+    </view>
+    <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+    <!-- <view class="noMor" wx:if="{{noMor}}">加载完成</view> -->
+</view>
+<danger-btn />

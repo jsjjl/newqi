@@ -1,0 +1,35 @@
+.box{width: 695rpx;
+  height: auto;
+  background: #FFFFFF;
+  box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(0,0,0,0.28);
+  border-radius: 10rpx; margin: 29rpx 0 0 28rpx;display: block; float: left; }
+  .title{ width: 100%; height: auto; display: block; float: left; padding: 31rpx 19rpx 0; box-sizing: border-box; font-size: 30rpx;
+    line-height: 29rpx;
+    font-weight: 400;
+    color: #000000;}
+.jc{width: 100%; height: auto; display: block; float: left; padding: 0 19rpx 40rpx; box-sizing: border-box; }
+.jc p{ width: 100%; height: auto; display: block; float: left; margin: 30rpx 0 0;}
+.jc p span{ width:auto; height: auto; display: block; float: left; font-size: 24rpx;
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.6; line-height: 24rpx; margin: 0 10rpx 0 0;}
+
+
+  .jc p em{ width: auto; height: auto; display: block; float: left; font-size: 24rpx;
+    font-weight: 400;
+    color: #000000;
+line-height: 24rpx;}
+.jc.jcb p em{line-height: 30rpx;}
+.jc p image{ width:36rpx; height: 36rpx; display: block; float: left;  margin: -8rpx 10rpx 0 0;}
+
+.zp{width: 100%; height: auto; display: block; float: left; padding: 0 19rpx 40rpx; box-sizing: border-box; }
+
+
+.zp image{width: 200rpx; height: 200rpx; display: block; float: left; margin: 29rpx 25rpx 0 0;}
+.zp image:nth-child(3n){ margin-right: 0;}
+.yy{ width: 43rpx; height: 43rpx; display: block; float: right; margin: -8rpx 10rpx 20rpx 0;}
+.hr{ width: 100%; height:150rpx; display: block; float: left;}
+
+.title2{
+  font-weight: bold;
+}

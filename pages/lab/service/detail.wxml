@@ -1,0 +1,8 @@
+<view class="page">
+    <p class="bt">{{list.fileName?list.fileName:''}}</p>
+     <p class="bt2">{{list.createTime?list.createTime:''}}</p>
+    <image src="{{list.url}}" bindtap="viewImage" data-id="{{list.url}}"  class="tp"></image>
+    <!-- html -->
+    <rich-text nodes="{{list.content}}" class="nr"></rich-text>
+</view>
+<danger-btn />

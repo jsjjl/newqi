@@ -1,0 +1,73 @@
+<view class="page">
+    <!-- <view class="search" style="margin:0">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <input model:value="{{deviceName}}" bindinput="bindKeyInput" placeholder="搜索设备名称" type="text" />
+    </view>
+     <view class="search">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <input model:value="{{deviceCode}}" bindinput="bindKeyInput2" placeholder="搜索设备编号" type="text" />
+    </view> -->
+
+
+
+
+    <!-- 卡片列表 -->
+    <view wx:for="{{list}}" wx:key="index" class="card" bindtap="go" data-detail="{{item}}">
+        <view class="card-header">
+            <view class="card-title">{{item.deviceName?item.deviceName:'-'}}</view>
+            <view class="card-status {{getStatusClass(item.overdueState)}}">
+                <span class="{{'g'+item.overdueState}}">
+                {{item.overdueState==0?'正常':item.overdueState==1?'即将到期':item.overdueState==2?'已到期':''}}
+            </span>
+            </view>
+        </view>
+        <view class="card-info">
+            <view>设备编号：{{item.deviceCode?item.deviceCode:'-'}}</view>
+            <view class="tbr">
+                <image src="../../images/t1.svg" class="icon" />{{item.areaName?item.areaName:''}}{{item.building?'-'+item.building:''}}{{item.floor?'-'+item.floor:''}}
+            </view>
+            <view class="tbr">
+                <image src="../../images/t2.svg" class="icon" />{{item.responsibleName?item.responsibleName:'-'}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t3.svg" class="icon" />有效期：{{item.validityDate?item.validityDate:'-'}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t4.svg" class="icon" />{{item.typeName?item.typeName:'-'}}
+            </view>
+        </view>
+    </view>
+
+    <!-- <view class="xy_postbox djg{{index}}"  bindtap="go" data-detail="{{item}}" wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t">
+            <p>
+                <i>{{item.deviceName?item.deviceName:''}} {{item.deviceCode?item.deviceCode:''}}</i>
+            </p>
+            {{item.status}}
+            <span class="{{'g'+item.status}}">
+                {{item.status==0?'正常':item.status==1?'维修':item.status==2?'保养':'报废'}}
+            </span>
+        </view>
+        <view class="xy_postbox_f">
+            <p style="width: auto;">
+                <span wx:if="{{item.areaName}}">{{item.areaName?item.areaName:''}}</span>
+                <span wx:if="{{item.building}}">{{item.building?item.building:''}}</span>
+                <span wx:if="{{item.floor}}">{{item.floor?item.floor:''}}</span>
+                <span wx:if="{{item.responsibleName}}">
+                    {{item.responsibleName?item.responsibleName:''}}
+                </span>
+              
+            </p>
+            <i class="a" style="float: right;">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>
+                {{item.validityDate?item.validityDate:''}}
+            </i>
+        </view>
+    </view> -->
+    <view class="no" wx:if="{{noData}}">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" />
+        <p>暂无数据</p>
+    </view>
+    <!-- <view class="noMor" wx:if="{{noMor}}">加载完成</view> -->
+</view>
+<danger-btn />

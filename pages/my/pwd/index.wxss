@@ -1,0 +1,9 @@
+page {
+  background: var(--bg-color, #f5f6f8);
+}
+.form_boxi:focus-within {
+  background: #fff !important;
+  box-shadow: 0 0 0 2px var(--primary-light) !important;
+}
+
+

@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+
+    <!-- <view class="bj"></view> -->
+
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/04/02.png" mode="widthFix" />
+        <span>空气机组运行时间统计图</span>
+    </view>
+    
+    <ec-canvas wx:if="{{ec1Date}}" class="ec-canvas3" ec="{{ ec2 }}"></ec-canvas>
+
+</view>
+<danger-btn />

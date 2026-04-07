@@ -1,0 +1,92 @@
+<!-- <view class="top_list" bindtap="go">上传记录</view> -->
+<view class="form_box ">
+    <p>故障项目</p>
+    <input class="form_boxi" type="text" placeholder="请输入" bindinput="_project" placeholder-class="placeholder" value="{{project}}" />
+</view>
+
+<view class="form_box">
+    <p>问题描述</p>
+    <textarea bindblur="bindTextAreaBlur2" class="bzbx" placeholder="请输入" />
+</view>
+
+
+<view class="form_box ">
+    <p>故障类型</p>
+    <view class="form_boxr">
+        <picker class="select_box" bindchange="bindPickerChange" value="{{index}}" range-key="dictLabel" range="{{array}}">
+            <p class="{{index!=null?'':'a'}}">{{index!=null?array[index].dictLabel:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+<view class="form_box ">
+    <p>紧急程度</p>
+    <view class="form_boxr">
+        <picker class="select_box" bindchange="bindPickerChange2" value="{{index2}}" range-key="dictLabel" range="{{array2}}">
+            <p class="{{index2!=null?'':'a'}}">{{index2!=null?array2[index2].dictLabel:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+
+
+
+<view class="form_box ">
+    <p>故障位置</p>
+    <input class="form_boxi" type="text" placeholder="请输入" bindinput="_location" placeholder-class="placeholder" value="{{location}}" />
+</view>
+
+<view class="form_box form_box_img">
+    <p>
+        问题照片
+        <span>请上传图片保持清晰</span>
+    </p>
+    <view class="tpx">
+        <view wx:if="{{img_arr.length<=2}}" class="tpadd" bindtap="addimg">
+            <image class="" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/img.png" mode="widthFix" />
+        </view>
+        <block wx:for='{{img_arr}}' wx:key='index' wx:for-item='item'>
+            <view class="tpt">
+                <image class="tptimg" src="{{item}}" mode="aspectFill" src='{{item}}' data-index="{{index}}" bindtap="previewImg" bindlongpress="deleteImg" name="headimage"></image>
+                <image class="del" src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/d.png" bindtap="deleteImg" data-id="{{item}}" mode="aspectFill"></image>
+            </view>
+        </block>
+    </view>
+</view>
+
+<view class="form_box">
+    <p>故障原因</p>
+    <textarea bindblur="bindTextAreaBlur" class="bzbx" placeholder="请输入" />
+</view>
+<view class="form_box">
+    <p>故障日期</p>
+     <view class="form_boxr">
+        <picker class="select_box" bindchange="bindDateChange" value="{{date}}" mode="date">
+            <p class="{{date!=null?'':'a'}}">{{date!=null?date:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+<view class="form_box">
+    <p>故障时间</p>
+     <view class="form_boxr">
+        <picker class="select_box" bindchange="bindDateChange2" value="{{time}}" mode="time">
+            <p class="{{time!=null?'':'a'}}">{{time!=null?time:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+<view class="form_box">
+    <p>报修人</p>
+     <view class="form_boxr">
+        <picker class="select_box" bindchange="bindPickerChange3" value="{{index3}}" range-key="dictLabel" range="{{array3}}">
+            <p class="{{index3!=null?'':'a'}}">{{index3!=null?array3[index3].dictLabel:'请选择'}}</p>
+        </picker>
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/r.png" mode="widthFix" />
+    </view>
+</view>
+
+
+<view class="bthrr"></view>
+<view class="bt" bindtap="save">提交</view>
+<danger-btn />

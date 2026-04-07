@@ -1,0 +1,8 @@
+{
+    "navigationBarBackgroundColor": "#1677ff",
+  "navigationBarTextStyle": "white",
+  "navigationBarTitleText": "设备实时状态列表",
+  "usingComponents": {
+    "ec-canvas": "../../components/ec-canvas/ec-canvas"
+  }
+}

@@ -1,0 +1,63 @@
+.ec-canvas1 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+  margin: 0rpx 5%;
+}
+.ant{ width: 90%; height: auto; display: block; float: left; margin: 20rpx 5% 20rpx; padding: 20rpx 30rpx; box-sizing: border-box;border: 1px solid #1677ff; border-radius: 20rpx;}
+.antl{ width: 60rpx; height: 60rpx; display: block; float: left; margin: 10rpx 0 0 0;}
+.ant span{ width: auto; height: 80rpx; line-height: 80rpx; margin: 0 0 0 20rpx; display: block; float: left;}
+.antr{ width: 50rpx; height: 50rpx; display: block; float: right; margin: 15rpx 0rpx 0 0; opacity: .5;}
+
+
+.ant 
+
+.ec-canvas2 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+   margin: 30rpx 5%;
+}
+
+.ec-canvas3 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+   margin: 30rpx 5%;
+}
+
+.ec-canvas4 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+  margin: 30rpx 5% 0;
+  background: #fff;box-sizing: border-box; border-radius: 20rpx;padding: 25rpx 0px 0; box-shadow: 0px 12rpx 18rpx 2rpx rgba(0, 0, 0, 0.05);
+}
+
+.ec-canvas5 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+   margin: 30rpx 5%;
+}
+
+.ec-canvas6 {
+  width:90%;
+  height:500rpx;
+  display: block;
+  float: left;
+   margin: 30rpx 5%;
+}
+
+.title{ width: 100%; height: auto; display: block; float: left; margin: 20rpx 0 10rpx; padding:0 30rpx; box-sizing: border-box;}
+.title image{ width: 67rpx; height: 67rpx; display: block; float: left; margin: 0 20rpx 0 0;}
+.title  span{ width: auto; height: auto; display: block; float: left; line-height: 67rpx; font-size: 27rpx; color: #2f2f2f;}
+
+.tab{width: 100%; height: auto; display: block; float: left; margin: 10rpx 0 20rpx; padding:0 30rpx; box-sizing: border-box;}
+.tab span{ font-size: 24rpx; margin:  0 0 0 20rpx; color: #2f2f2f;}
+.tab span.active{ color: #1677ff; font-size: 28rpx;}

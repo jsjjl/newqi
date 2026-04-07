@@ -1,0 +1,130 @@
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/sb.svg" />
+    <p>设备信息</p>
+  </view>
+  <view class="top">
+    <text>设备名称</text>
+  </view>
+  <view class="xlk">
+   <view wx:if="{{smsbid}}" class="picker pickera">{{smsbidName}}</view>
+
+  <picker wx:else mode="selector" range="{{deviceList}}" range-key="deviceName" value="{{deviceIndex}}" bindchange="onDeviceChange">
+    <view class="{{deviceIndex !== null ?'picker pickera':'picker'}}">{{deviceIndex !== null ? deviceList[deviceIndex].deviceName : '请选择设备'}}</view>
+  </picker>
+
+  </view>
+  <view class="top">
+    <text>设备编号</text>
+  </view>
+  <view class="xlk">
+    <view wx:if="{{smsbid}}" class="picker pickera">{{smsbbh}}</view>
+    <view wx:else class="{{deviceIndex !== null ?'picker pickera':'picker'}}">
+      {{smsbbh?smsbbh:deviceIndex !== null ? deviceList[deviceIndex].deviceCode : ''}}
+    </view>
+  </view>
+</view>
+
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/by.svg" />
+    <p>保养信息</p>
+  </view>
+<view class="top">
+  <text>保养类型</text>
+</view>
+<view class="xlk">
+  <picker mode="selector" range="{{maintenanceTypeList}}" range-key="dictLabel" value="{{maintenanceTypeIndex}}" bindchange="onMaintenanceTypeChange">
+    <view class="{{maintenanceTypeIndex !== null ?'picker pickera':'picker'}}">{{maintenanceTypeIndex !== null ? maintenanceTypeList[maintenanceTypeIndex].dictLabel : '请选择保养类型'}}</view>
+  </picker>
+</view>
+
+<view class="top">
+  <text>保养日期</text>
+</view>
+<view class="xlk">
+  <picker mode="date" value="{{maintainDate}}" bindchange="onDateChange">
+    <view class="{{maintainDate ?'picker pickera':'picker'}}">{{maintainDate || '请选择日期'}}</view>
+  </picker>
+</view>
+
+<view class="top">
+  <text>类型</text>
+</view>
+<view class="xlk">
+  <radio-group bindchange="onTypeChange">
+    <label class=" {{type==item.value ? 'radio-checked' : ''}}">
+      <radio value="1" checked="{{type==1}}"/><text class="radio-text">设备</text>
+    </label>
+    <label class="{{type==item.value ? 'radio-checked' : ''}}" style="margin-left: 30rpx;">
+      <radio value="2" checked="{{type==2}}"/><text class="radio-text">零部件</text>
+    </label>
+  </radio-group>
+</view>
+
+<view class="top" wx:if="{{type==2}}">
+  <text>零部件名称</text>
+</view>
+<view class="xlk" wx:if="{{type==2}}">
+  <picker mode="selector" range="{{partList}}" range-key="partName" value="{{partIndex}}" bindchange="onPartChange">
+    <view class="{{partIndex !== null ?'picker pickera':'picker'}}">{{partIndex !== null ? partList[partIndex].partName : '请选择零部件'}}</view>
+  </picker>
+</view>
+
+<view class="top">
+  <text>保养人</text>
+</view>
+
+<view class="xlk" style="position:relative;">
+  
+  <input
+    class="xlki"
+    placeholder="请输入保养人姓名"
+    bindinput="operatorNameInput"
+    value="{{operatorName}}"
+  />
+  <!-- <input
+    class="xlki"
+    placeholder="请输入保养人姓名"
+    bindinput="onUserInput"
+    value="{{userInput}}"
+    bindfocus="onUserFocus"
+    bindblur="onUserBlur"
+    confirm-type="done"
+  />
+  <view wx:if="{{showUserSuggest && filteredUserList.length > 0}}" style="position:absolute;top:80rpx;left:0;right:0;z-index:99;background:#fff;border:1px solid #eee;border-radius:20rpx; max-height:400rpx; overflow:auto;box-sizing:border-box;">
+    <view wx:for="{{filteredUserList}}" wx:key="userId" class="picker pickera" style="padding:0 30rpx;box-sizing:border-box;" bindtap="onUserSelect" data-index="{{index}}">
+      {{item.nickName}}
+    </view>
+  </view> -->
+</view>
+<!-- <view class="xlk">
+  <picker mode="selector" range="{{userList}}" range-key="nickName" value="{{userIndex}}" bindchange="onUserChange">
+    <view class="{{userIndex !== null ?'picker pickera':'picker'}}">{{userIndex !== null ? userList[userIndex].nickName : '请选择保养人'}}</view>
+  </picker>
+</view> -->
+
+<view class="top">
+  <text>联系方式</text>
+</view>
+<view class="xlk">
+  <input class="xlki" type="text" placeholder="请输入" bindinput="onContactInput" value="{{contact}}" />
+</view>
+
+</view>
+<view class="editWrapBox">
+  <view class="title">
+    <image src="../../images/bz.svg" />
+    <p>备注</p>
+  </view>
+<!-- <view class="top">
+  <text>备注</text>
+</view> -->
+<view class="xlk" style="width: 100%; height: 200rpx; line-height:30rpx;">
+  <textarea class="xlki" placeholder="请输入" bindinput="onRemarkInput" value="{{remark}}" style="width: 97%; height: 200rpx;line-height:30rpx;" />
+  <!-- <input class="xlki" type="text" placeholder="请输入" bindinput="onRemarkInput" value="{{remark}}" /> -->
+</view>
+</view>
+
+<view class="bt" bindtap="onSubmit">提交</view>
+<danger-btn />

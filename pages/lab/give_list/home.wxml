@@ -1,0 +1,28 @@
+<view class="page">
+     <view class="search" style="margin-bottom: 20rpx;">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" />
+        <input model:value="{{name}}" bindinput="bindKeyInput" placeholder="输入设备位置" type="text" />
+    </view>
+    <view class="xy_postbox right"wx:for="{{ list }}" wx:key="index">
+        <view class="xy_postbox_t">
+            <p>{{item.alarmTypeName}}</p>
+            <span class="{{item.statusName=='处理中'?'r':'g'}}">{{item.statusName}}</span>
+        </view>
+        <view class="xy_postbox_f">
+            <p>
+                <span>{{item.deviceSn?item.deviceSn:''}}</span>
+                <span>{{item.devicePosition?item.devicePosition:''}}</span>
+                
+            </p>
+            <em style="float:left"><image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/time.svg" class="ic_time" mode="aspectFill"></image>{{item.distributeTime}}</em>
+        </view>
+        <view class="bt" wx:if="{{item.statusName=='处理中'}}"  bindtap="go" data-id="{{item.id}}" >立即处理</view>
+    </view>
+                <view class="no" wx:if="{{noData}}">
+  <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix"/>
+  <p>暂无数据</p>
+</view>
+
+    <!--<view class="noMor" wx:if="{{noMor}}">加载完成</view>-->
+</view>
+<danger-btn />

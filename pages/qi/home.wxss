@@ -1,0 +1,104 @@
+.xy_postbox_f i, .xy_postbox_t span {
+float: right;
+}
+
+.pickerss{
+     /* height: 23rpx;
+  line-height: 23rpx;
+  min-height: 23rpx;
+  width: 500rpx;
+  display: block;
+  float: left; */
+  font-size: 26rpx;
+
+  color: #808080;
+}
+
+
+
+
+
+
+/* 卡片样式 */
+.card {
+  background: #fff;
+  border-radius: 0;
+  margin: 10rpx 0;
+  padding: 15rpx 25rpx;
+  width: 700rpx;
+  margin:20rpx 25rpx;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  /* border-bottom: 1px solid #f0f1f2; */
+  box-shadow: 0 2rpx 12rpx #f0f1f2;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0rpx;
+}
+
+.card-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #222;
+}
+
+.card-status {
+  padding: 6rpx 20rpx;
+  border-radius: 24rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.status-repairing {
+  background: #ffeaea;
+  color: #ff4d4f;
+}
+
+.status-maintain {
+  background: #fffbe6;
+  color: #faad14;
+}
+
+.status-done {
+  background: #e6fffb;
+  color: #52c41a;
+}
+
+.status-normal {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.card-info {
+  color: #666;
+  font-size: 28rpx;
+  line-height: 2;
+  width: 100%;
+  display: block;
+  float: left;
+}
+
+.icon {
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+  margin-right: 8rpx;
+}
+
+.tbr {
+  width: 50%;
+  display: block;
+  float: left;
+}
+
+.card:last-child {
+  margin-bottom: 30rpx;
+}
+
+/* ...existing code... */
+

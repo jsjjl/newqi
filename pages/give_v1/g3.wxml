@@ -1,0 +1,56 @@
+<view class="top">
+    <!-- <view class="bj"></view> -->
+    <view class="title">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/02/01.png" mode="widthFix" />
+        <span>历史告警信息</span>
+    </view>
+    <view class="ss">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/ss.png" mode="widthFix" />
+        <input class="ssi" placeholder="请输入地点" bindinput="bindKeyInput" confirm-type="search" bindconfirm="getlist1" />
+    </view>
+    <view class="fboxs">
+        <view class="fbox" wx:for="{{kqjz}}" wx:key="item">
+            <p>
+                <span>地点</span>
+                <em>{{item.position}}</em>
+            </p>
+            <p>
+                <span>设备</span>
+                <em>{{item.equipmentName}}</em>
+            </p>
+            <p>
+                <span>级别</span>
+                <em>{{item.grade}}级</em>
+            </p>
+            <p>
+                <span>告警信息</span>
+                <em>{{item.info}}</em>
+            </p>
+            <p>
+                <span>告警时间</span>
+                <em>{{item.warningTime}}</em>
+            </p>
+        </view>
+        <!-- 判断如果没有数据提示暂无数据 -->
+        <view wx:if="{{jzz}}">
+            <view class="no">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" style="margin-top: 20rpx; margin-left:210rpx" />
+                <p>加载中...</p>
+            </view>
+        </view>
+        <view wx:if="{{zwsj}}">
+            <view class="no">
+                <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" style="margin-top: 20rpx; margin-left:210rpx" />
+                <p>暂无数据</p>
+            </view>
+        </view>
+        <!-- <view class="fbox">
+            <p><span>地点</span> <em>医院气体站</em></p>
+            <p><span>设备</span> <em>2号氧气罐</em></p>
+            <p><span>级别</span> <em>1级</em></p>
+            <p><span>告警信息</span> <em>余量低于5%</em></p>
+            <p><span>告警时间</span> <em>2024-05-17 00:01:00</em></p>
+        </view> -->
+    </view>
+</view>
+<danger-btn />

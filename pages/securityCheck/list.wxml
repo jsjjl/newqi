@@ -1,0 +1,216 @@
+<!-- 页面主结构 -->
+<view class="container">
+    <!-- 左侧导航栏 -->
+    <view class="nav">
+        <view class="nav-item {{currentNav === 'pressure' ? 'active' : ''}}" bindtap="switchNav" data-nav="pressure" data-type="1">
+            压力容器巡查
+        </view>
+        <view class="nav-item {{currentNav === 'danger' ? 'active' : ''}}" bindtap="switchNav" data-nav="danger" data-type="2">
+            危险品巡查
+        </view>
+        <view class="nav-item {{currentNav === 'manifold' ? 'active' : ''}}" bindtap="switchNav" data-nav="manifold" data-type="3">
+            汇流排
+        </view>
+        <view class="nav-item {{currentNav === 'unit' ? 'active' : ''}}" bindtap="switchNav" data-nav="unit" data-type="4">
+            机组巡查
+        </view>
+        <view class="nav-item {{currentNav === 'weekly' ? 'active' : ''}}" bindtap="switchNav" data-nav="weekly" data-type="5">
+            每周保养
+        </view>
+        <view class="nav-item {{currentNav === 'monthly' ? 'active' : ''}}" bindtap="switchNav" data-nav="monthly" data-type="6">
+            每月保养
+        </view>
+        <view class="nav-item {{currentNav === 'repair' ? 'active' : ''}}" bindtap="switchNav" data-nav="repair" data-type="7">
+            维修记录
+        </view>
+        <view class="nav-item {{currentNav === 'hidden' ? 'active' : ''}}" bindtap="switchNav" data-nav="hidden" data-type="8">
+            隐患排查记录
+        </view>
+    </view>
+    <!-- 右侧内容区 -->
+    <view class="content">
+        <!-- 巡查列表（各模块共用结构） -->
+        <view class="list" wx:if="{{currentList.length > 0}}">
+            <view class="item" bindtap="showDetail" data-item="{{item}}" wx:for="{{currentList}}" wx:key="id">
+                <view class="item-header">
+                    <text class="item-name">{{item.name}}</text>
+                   <text class="item-detail" >{{item.result}}</text>
+                </view>
+                <view class="item-info">
+                    <!-- 根据当前类型显示不同时间文案 -->
+                    <text wx:if="{{currentType <= 4}}">巡查时间：{{item.time}}</text>
+                    <text wx:if="{{currentType === 5 || currentType === 6}}">
+                        保养时间：{{item.time}}
+                    </text>
+                    <text wx:if="{{currentType === 7}}">维修时间：{{item.time}}</text>
+                    <text wx:if="{{currentType === 8}}">上报时间：{{item.time}}</text>
+                    <!-- 根据当前类型显示不同人员文案 -->
+                    <text wx:if="{{currentType <= 4}}">巡查人：{{item.person}}</text>
+                    <text wx:if="{{currentType === 5 || currentType === 6}}">
+                        保养人：{{item.person}}
+                    </text>
+                    <text wx:if="{{currentType === 7}}">维修人：{{item.person}}</text>
+                    <text wx:if="{{currentType === 8}}">上报人：{{item.person}}</text>
+                    <!-- 根据当前类型显示不同结果文案 -->
+                    <!-- <text wx:if="{{currentType <= 4}}">巡查结果：{{item.result}}</text>
+                    <text wx:if="{{currentType === 5 || currentType === 6}}">
+                        保养结果：{{item.result}}
+                    </text>
+                    <text wx:if="{{currentType === 7}}">维修结果：{{item.result}}</text>
+                    <text wx:if="{{currentType === 8}}">处理结果：{{item.result}}</text> -->
+                </view>
+            </view>
+        </view>
+        <!-- 暂无数据 -->
+        <view class="no-data" wx:if="{{currentList.length == 0}}">暂无数据</view>
+    </view>
+    <view class="submit-btn" bindtap="go">
+        <text class="btn-text">检查结果确认</text>
+    </view>
+<!-- 详情弹窗 -->
+<view class="modal {{showModal ? 'show' : ''}}">
+  <view class="modal-header">{{modalData.name}}</view>
+  <view class="modal-body">
+    <!-- 1-4类型：巡查详情 -->
+    <view wx:if="{{currentType <= 4}}">
+      <view class="modal-info">
+        <text class="info-label">巡查时间：</text>
+        <text class="info-value">{{modalData.inspectTime}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">巡查人：</text>
+        <text class="info-value">{{modalData.inspector}}</text>
+      </view>
+      <view class="section-title">检查项详情</view>
+      <view class="check-item" wx:for="{{modalData.checkItems}}" wx:key="index">
+        <view class="check-name">{{item.name}}</view>
+        <view class="check-detail">
+          <text class="info-label">标准：{{item.standard}}</text>
+          <text class="info-value">实际值：{{item.actual}}</text>
+          <text class="check-status {{item.statusClass}}">状态：{{item.status}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 5-6类型：保养详情 -->
+    <view wx:if="{{currentType === 5 || currentType === 6}}">
+      <view class="modal-info">
+        <text class="info-label">保养人：</text>
+        <text class="info-value">{{modalData.maintainPerson}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">保养结果：</text>
+        <text class="info-value">{{modalData.maintainResult}}</text>
+      </view>
+      <view class="section-title">保养内容详情</view>
+      <view class="maintain-item" wx:for="{{modalData.maintainItems}}" wx:key="index">
+        <view class="maintain-content">
+          <text class="label">内容：</text>
+          <text>{{item.content}}</text>
+        </view>
+        <view class="maintain-meta">
+          <text><text class="label">日期：</text>{{item.date}}</text>
+          <text><text class="label">备注：</text>{{item.remark}}</text>
+          <text wx:if="{{item.hasAttachment}}" class="has-attachment">有附件</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 7类型：维修详情 -->
+    <view wx:if="{{currentType === 7}}">
+      <view class="modal-info">
+        <text class="info-label">维修人：</text>
+        <text class="info-value">{{modalData.repairPerson}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">维修结果：</text>
+        <text class="info-value">{{modalData.repairResult}}</text>
+      </view>
+      <view class="section-title">维修内容详情</view>
+      <view class="repair-item" wx:for="{{modalData.repairItems}}" wx:key="index">
+        <view class="repair-content">
+          <text class="label">内容：</text>
+          <text>{{item.content}}</text>
+        </view>
+        <view class="repair-meta">
+          <text><text class="label">日期：</text>{{item.date}}</text>
+          <text><text class="label">备注：</text>{{item.remark}}</text>
+        </view>
+        <!-- 图片展示 -->
+        <view class="attachments" wx:if="{{item.pictures.length > 0}}">
+          <text class="label">现场图片：</text>
+          <view class="image-list">
+            <image 
+      wx:for="{{item.pictures}}" 
+      wx:key="*this" 
+      src="{{item}}" 
+      mode="aspectFit" 
+      class="attach-img"
+      bindtap="previewImage"
+      data-src="{{item}}"
+      data-urls="{{item.pictures}}"
+    />
+          </view>
+        </view>
+        <!-- 视频展示（可点击播放） -->
+        <view class="attachments" wx:if="{{item.videos.length > 0}}">
+          <text class="label">现场视频：</text>
+          <view class="video-list">
+            <view wx:for="{{item.videos}}" wx:key="*this" class="video-item" bindtap="playVideo" data-src="{{item}}">
+              <text>视频 {{index + 1}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 8类型：隐患排查详情 -->
+    <view wx:if="{{currentType === 8}}">
+      <view class="modal-info">
+        <text class="info-label">上报时间：</text>
+        <text class="info-value">{{modalData.reportTime}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">上报人：</text>
+        <text class="info-value">{{modalData.reporter}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">处理人：</text>
+        <text class="info-value">{{modalData.handler}}</text>
+      </view>
+      <view class="modal-info">
+        <text class="info-label">处理状态：</text>
+        <view class="inspect-result {{modalData.status === '已整改' || modalData.status === '已关闭' ? 'normal' : 'abnormal'}}">
+          {{modalData.status}}
+        </view>
+      </view>
+      <view class="detail-item">
+        <text class="label">隐患描述：</text>
+        <text class="value">{{modalData.hiddenDanger}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">整改措施：</text>
+        <text class="value">{{modalData.rectifyMeasure}}</text>
+      </view>
+      <view class="detail-item">
+        <text class="label">备注：</text>
+        <text class="value">{{modalData.remark}}</text>
+      </view>
+      <!-- 隐患图片 -->
+      <view class="attachments" wx:if="{{modalData.photo}}">
+        <text class="label">现场图片：</text>
+         <image 
+    src="{{modalData.photo}}" 
+    mode="aspectFit" 
+    class="attach-img"
+    bindtap="previewImage"
+    data-src="{{modalData.photo}}"
+  />
+      </view>
+    </view>
+  </view>
+  <view class="closeModal" bindtap="closeModal">关闭</view>
+</view>
+<view class="bgbj" bindtap="closeModal" wx:if="{{showModal}}"></view>
+</view>
+<danger-btn />

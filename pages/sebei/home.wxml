@@ -1,0 +1,56 @@
+<view class="page" style="padding: 20rpx;">
+    <view class="search modern-card" style="margin: 0 0 20rpx 0; padding: 20rpx; display: flex; align-items: center; border-radius: var(--border-radius-xl);">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" style="width: 32rpx; height: 32rpx; margin-right: 16rpx; opacity: 0.5;" />
+        <input model:value="{{deviceName}}" bindinput="bindKeyInput" placeholder="搜索设备名称" type="text" style="flex: 1; font-size: 28rpx;" />
+    </view>
+     <view class="search modern-card" style="margin: 0 0 20rpx 0; padding: 20rpx; display: flex; align-items: center; border-radius: var(--border-radius-xl);">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/2/search.png" mode="widthFix" style="width: 32rpx; height: 32rpx; margin-right: 16rpx; opacity: 0.5;" />
+        <input model:value="{{deviceCode}}" bindinput="bindKeyInput2" placeholder="搜索设备编号" type="text" style="flex: 1; font-size: 28rpx;" />
+    </view>
+
+
+<view class="tab-bar" style="background: transparent; margin-bottom: 20rpx;">
+  <view class="tab-item {{status===undefined?'active':''}}" data-status="" bindtap="onTabChange">全部</view>
+  <view class="tab-item {{status==0?'active':''}}" data-status="0" bindtap="onTabChange">正常</view>
+  <view class="tab-item {{status==1?'active':''}}" data-status="1" bindtap="onTabChange">维修</view>
+  <view class="tab-item {{status==2?'active':''}}" data-status="2" bindtap="onTabChange">保养</view>
+  <view class="tab-item {{status==3?'active':''}}" data-status="3" bindtap="onTabChange">报废</view>
+</view>
+
+    <!-- 卡片列表 -->
+    <view wx:for="{{list}}" wx:key="index" class="card modern-card hover-scale" bindtap="go" data-detail="{{item}}" style="margin: 0 0 24rpx 0; width: 100%;">
+        <view class="card-header" style="border-bottom: 1rpx solid var(--border-color); padding-bottom: 20rpx; margin-bottom: 20rpx;">
+            <view class="card-title" style="font-size: 32rpx;">{{item.deviceName}}</view>
+            <view class="card-status {{getStatusClass(item.status)}}">
+                <span class="{{'g'+item.status}}">{{ 
+  item.status == 0 ? '正常' : 
+  item.status == 1 ? '维修' : 
+  item.status == 2 ? '保养' : 
+  item.status == 4 ? '维修&保养' : 
+  '报废' 
+}}</span>
+            </view>
+        </view>
+        <view class="card-info">
+            <view style="width: 100%; color: var(--text-main); font-weight: 500; margin-bottom: 10rpx;">设备编号：{{item.deviceCode?item.deviceCode:'-'}}</view>
+            <view class="tbr">
+                <image src="../../images/t1.svg" class="icon" />{{item.areaName?item.areaName:''}}{{item.building?'-'+item.building:''}}{{item.floor?'-'+item.floor:''}}
+            </view>
+            <view class="tbr">
+                <image src="../../images/t2.svg" class="icon" />{{item.responsibleName?item.responsibleName:'-'}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t3.svg" class="icon" />有效期：{{item.validityDate?item.validityDate:'-'}}
+            </view>
+            <view class="tbr">
+                 <image src="../../images/t4.svg" class="icon" />{{item.typeName?item.typeName:'-'}}
+            </view>
+        </view>
+    </view>
+
+    <view class="no" wx:if="{{noData}}" style="padding: 100rpx 0; text-align: center;">
+        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/no.png" class="no_img" mode="widthFix" style="width: 200rpx;" />
+        <p style="color: var(--text-muted); margin-top: 20rpx; display: block;">暂无数据</p>
+    </view>
+</view>
+<danger-btn />

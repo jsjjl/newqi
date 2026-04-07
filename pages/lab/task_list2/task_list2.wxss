@@ -1,0 +1,191 @@
+.top {
+  width: 100%;
+  height: 120rpx;
+  display: block;
+  float: left;
+  background: #1568EA;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10rpx;
+}
+
+.topbox {
+  width: 684rpx;
+  height: 80rpx;
+  background: #E8F2FE;
+  box-shadow: 0rpx 0rpx 8rpx 0rpx rgba(0, 0, 0, 0.28);
+  border-radius: 10rpx;
+  margin: 20rpx 33rpx;
+  display: block;
+  float: left;
+}
+
+.tl {
+  width: 500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+
+  font-weight: 400;
+  color: #2F2F2F;
+  display: block;
+  float: left;
+  margin: 0 0 0 0;
+}
+
+.tr {
+  width: 37rpx;
+  height: auto;
+  display: block;
+  float: left;
+  margin: 22rpx 18rpx 0 16rpx;
+}
+
+.box {
+  width: 666rpx;
+  height: auto;
+  border-bottom: 1px solid #eeeeee;
+  display: block;
+  float: left;
+  margin: 0 42rpx 0;
+}
+
+.box span {
+  min-width: 42rpx;
+  width: auto;
+  height: 42rpx;
+  background: #4a4a4a;
+  border-radius: 50%;
+  margin: 34rpx 16rpx 27rpx 0;
+  display: block;
+  float: left;
+  text-align: center;
+  line-height: 42rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+
+.box p {
+  width: 600rpx;
+  height: auto;
+  display: block;
+  float: left;
+  font-size: 30rpx;
+
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.6;
+  margin: 35rpx 0 33rpx 0;
+}
+
+
+
+.box.active span {
+  background: #1568EA;
+  opacity: 1;
+}
+
+
+
+.box.active p {
+  color: #1568EA;
+  opacity: 1;
+}
+
+.boxr {
+  width: 23rpx;
+  height: auto;
+  display: block;
+  float: right;
+  margin: 35rpx 5rpx 0 0;
+}
+
+.no {
+  width: 100%;
+  height: auto;
+  display: block;
+  float: left;
+  font-size: 24rpx;
+
+  font-weight: 400;
+  color: #000000;
+  opacity: 0.6;
+  margin: 100rpx 0 0 0;
+  text-align: center;
+}
+
+.bthr {
+  width: 625rpx;
+  height: 30rpx;
+  display: block;
+  float: left;
+}
+
+.bt {
+  width: 700rpx;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  background: #1568EA;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  color: #FFFFFF;
+  display: block;
+  float: left;
+  /* position: fixed;
+  bottom: 80rpx;
+  left: 25rpx; */
+}
+
+.bt1 {
+  width: 330rpx;
+  margin: 0 30rpx;
+}
+
+.bt2 {
+  width: 330rpx;
+  right: 025rpx;
+  left: auto;
+}
+
+.transfer-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  /* display: flex; align-items: center; justify-content: center; */
+}
+
+.transfer-dialog {
+  width: 650rpx;
+  background: #fff;
+  border-radius: 18rpx;
+  padding: 40rpx 30rpx 30rpx 30rpx;
+  position: relative;
+  margin: 50rpx 50rpx;
+  box-sizing: border-box;
+}
+
+.transfer-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+
+.transfer-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40rpx;
+}
+
+/* .transfer-btns .bt {
+  width: 45%; height: 70rpx; border-radius: 10rpx; font-size: 30rpx;
+} */

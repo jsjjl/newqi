@@ -1,0 +1,60 @@
+<view class="main">
+    <view class="profile-header" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); padding: 60rpx 40rpx 80rpx; border-radius: 0 0 40rpx 40rpx; box-shadow: var(--shadow-md);">
+        <view class="top_f" bindtap="go" data-id="/pages/my/user/index" style="display: flex; align-items: center; width: 100%;">
+            <view class="tx" style="margin-right: 30rpx; box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.1); border: 4rpx solid rgba(255,255,255,0.4); border-radius: 50%; overflow: hidden;width: 120rpx; height: 120rpx; ">
+                <image wx:if="{{user.user.avatar}}" src="{{user.user.avatar}}" mode="widthFix" style="width: 120rpx; height: 120rpx; display: block;" />
+                <image wx:else src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_2.svg" mode="widthFix" style="width: 120rpx; height: 120rpx; display: block;" />
+            </view>
+            <view class="top_fr" style="flex: 1; display: flex; flex-direction: column;">
+                <span style="font-size: 40rpx; font-weight: bold; color: #fff; margin-bottom: 8rpx;">{{user.user.nickName || '未登录'}}</span>
+                <view style="display: flex; align-items: center; gap: 16rpx;">
+                  <i style="background: rgba(255,255,255,0.2); padding: 4rpx 16rpx; border-radius: 20rpx; font-size: 24rpx; color: #fff; font-style: normal;">ID: {{getlast || '-'}}</i>
+                  <i wx:if="{{user.user.dept.deptName}}" style="background: rgba(255,255,255,0.2); padding: 4rpx 16rpx; border-radius: 20rpx; font-size: 24rpx; color: #fff; font-style: normal;">{{user.user.dept.deptName}}</i>
+                </view>
+            </view>
+            <view style="color: rgba(255,255,255,0.8); font-size: 36rpx; font-family: monospace;">></view>
+        </view>
+    </view>
+    
+    <view class="boxs" style="margin-top: -40rpx; ">
+        <view class="modern-card card" style="padding: 10rpx 0;">
+            <div class="card_item hover-scale"  bindtap="go" data-id="/pages/my/user/index" style="padding: 30rpx;">
+                        <div class="card_item_left" style="margin-right: 20rpx;">
+                            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_01.svg" mode="widthFix" style="width: 44rpx; height: 44rpx;" />
+                        </div>
+                        <span class="card_item_t" style="flex: 1; font-size: 32rpx; color: var(--text-main);">个人信息</span>
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_00.svg" mode="widthFix" class="jt" style="width: 24rpx; opacity: 0.5;" />
+            </div>
+            <div class="card_item_hr" style="margin: 0 30rpx; background-color: var(--border-color);"></div>
+            <div class="card_item hover-scale" bindtap="go" data-id="/pages/my/pwd/index" style="padding: 30rpx;">
+                        <div class="card_item_left" style="margin-right: 20rpx;">
+                            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_02.svg" mode="widthFix" style="width: 44rpx; height: 44rpx;" />
+                        </div>
+                        <span class="card_item_t" style="flex: 1; font-size: 32rpx; color: var(--text-main);">修改密码</span>
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_00.svg" mode="widthFix"  class="jt" style="width: 24rpx; opacity: 0.5;" />
+            </div>
+            <div class="card_item_hr" style="margin: 0 30rpx; background-color: var(--border-color);"></div>
+            <div class="card_item hover-scale"  bindtap="go" data-id="/pages/msg_list/msg_list" style="padding: 30rpx;">
+                        <div class="card_item_left" style="margin-right: 20rpx;">
+                            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_03.svg" mode="widthFix" style="width: 44rpx; height: 44rpx;" />
+                        </div>
+                        <span class="card_item_t" style="flex: 1; font-size: 32rpx; color: var(--text-main);">消息通知</span>
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_00.svg" mode="widthFix"  class="jt" style="width: 24rpx; opacity: 0.5;" />
+            </div>
+            <div class="card_item_hr" style="margin: 0 30rpx; background-color: var(--border-color);"></div>
+            <div class="card_item hover-scale" style="padding: 30rpx; position: relative;">
+                        <div class="card_item_left" style="margin-right: 20rpx;">
+                            <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_04.svg" mode="widthFix" style="width: 44rpx; height: 44rpx;" />
+                        </div>
+                        <span class="card_item_t" style="flex: 1; font-size: 32rpx; color: var(--text-main);">联系我们</span>
+                        <image src="https://medicalgas.lygyy.com.cn/minio/mg-image/wximg/images/new/01_00.svg" mode="widthFix"  class="jt" style="width: 24rpx; opacity: 0.5;" />
+                        <button class="lxwm" open-type="contact" style="position: absolute; top:0; left:0; right:0; bottom:0; opacity: 0;"></button>
+            </div>
+        </view>
+
+        <view class="modern-card hover-scale" bindtap="tc" style="margin-top: 40rpx; text-align: center; padding: 30rpx; color: #ef4444; font-weight: 500; font-size: 32rpx;">
+            退出登录
+        </view>
+    </view>
+</view>
+<danger-btn />
